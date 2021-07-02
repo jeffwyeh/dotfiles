@@ -1,3 +1,6 @@
 [submodule "/Users/yehyeh/.hammerspoon/stackline"]
 	path = /Users/yehyeh/.hammerspoon/stackline
 	url = git@github.com:AdamWagner/stackline.git
+[submodule ".oh-my-zsh"]
+	path = .oh-my-zsh
+	url = git@github.com:ohmyzsh/ohmyzsh.git
