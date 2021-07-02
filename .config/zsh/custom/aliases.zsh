@@ -1,9 +1,6 @@
 # override ll
 alias ll='ls -lAFh'
 
-# quick move up a folder
-alias up='cd ..'
-
 # quick authentication
 alias initall='kinit && mwinit'
 
