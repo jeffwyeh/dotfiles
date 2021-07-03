@@ -69,8 +69,15 @@ https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#upda
 Note: this step is performed during the yadm bootstrap process but is added
 here for posterity.
 
-    brew bundle install
-    brew bundle cleanup --force
+    brew bundle --global
+
+### Configure iTerm2 to find custom preferences
+
+    # Specify the preferences directory
+    defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$HOME/.config/iterm/"
+
+    # Tell iTerm2 to use the custom preferences in the directory
+    defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
 
 ## What's missing?
 
@@ -84,6 +91,4 @@ here for posterity.
 * Amphetamine installation and configuration files
 * Amphetamine enhancer installation
 * Bootstrap can be more robust
-* iTerm2 configuration
-    * Is this even possible, or should we move to kitty or alacritty?
 * VSCode settings
