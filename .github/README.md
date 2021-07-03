@@ -3,11 +3,11 @@
 This is a repository for managing all dotfiles for my personal configuration.
 Below is a list of what this repository will set up:
 * Zsh
-** Commonly used aliases (located at $HOME/.config/zsh/custom/)
-** [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
-** [Powerlevel10k](https://github.com/romkatv/powerlevel10k) (Zsh theme)
+    * Commonly used aliases (located at $HOME/.config/zsh/custom/)
+    * [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
+    * [Powerlevel10k](https://github.com/romkatv/powerlevel10k) (Zsh theme)
 * vim
-** Includes installation of vimplug and plugins
+    * Includes installation of vimplug and plugins
 
 ## Mac-specific
 
@@ -75,15 +75,15 @@ here for posterity.
 ## What's missing?
 
 * Git configuration files, aliases, and commands
-** Need to think about rolling [dev-tools](https://github.com/jeffwyeh/dev-tools) into this repository
+    * Need to think about rolling [dev-tools](https://github.com/jeffwyeh/dev-tools) into this repository
 * Making the home and end keys function correctly on Mac
-** See [this link](https://damieng.com/blog/2015/04/24/make-home-end-keys-behave-like-windows-on-mac-os-x)
-** We may be able to add this as a bootstrap step
+    * See [this link](https://damieng.com/blog/2015/04/24/make-home-end-keys-behave-like-windows-on-mac-os-x)
+    * We may be able to add this as a bootstrap step
 * Alfred installation and configuration files
 * BTT installation and configuration files
 * Amphetamine installation and configuration files
 * Amphetamine enhancer installation
 * Bootstrap can be more robust
 * iTerm2 configuration
-** Is this even possible, or should we move to kitty or alacritty?
+    * Is this even possible, or should we move to kitty or alacritty?
 * VSCode settings
