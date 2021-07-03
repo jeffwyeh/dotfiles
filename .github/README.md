@@ -86,3 +86,4 @@ here for posterity.
 * Bootstrap can be more robust
 * iTerm2 configuration
 ** Is this even possible, or should we move to kitty or alacritty?
+* VSCode settings
