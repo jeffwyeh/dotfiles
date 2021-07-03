@@ -79,6 +79,9 @@ hyper - o : /Users/yehyeh/.config/skhd/toggleOpacity.sh
 ## disable opacity
 hyper - i : /Users/yehyeh/.config/skhd/toggleOpacityAll.sh
 
+## toggle mission controller (a la windows)
+alt - tab : yabai -m space --toggle mission-control
+
 ################################################################
 ############################# UNUSED ###########################
 ################################################################
