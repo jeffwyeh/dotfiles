@@ -13,7 +13,7 @@ ZSH_CUSTOM=$HOME/.config/zsh
 
 # Do not use oh-my-zsh to load the theme for YADM purposes
 ZSH_THEME=""
-source ~/.config/zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
