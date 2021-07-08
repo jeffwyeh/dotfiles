@@ -10,6 +10,6 @@
   rebase = true
 [core]
   editor = vim
+	pager = less -FRX
 [credential]
   helper = cache --timeout=30000
-

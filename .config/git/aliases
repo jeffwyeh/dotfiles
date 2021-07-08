@@ -41,7 +41,7 @@
   ec = config --global -e
   servedir = !hostname -I && git daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git/
 # The following require helper scripts
-  fbs = !git fetch --all && git branch-status
+  fbs = !git fetch && git branch-status
   fup = !git fetch --prune $@ && git ffwd-update
   bug-branch = topic-branch bug
   story-branch = topic-branch story
