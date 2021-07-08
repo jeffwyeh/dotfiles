@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# This pushes commits to gerrit code review.
+# There are 3 forms:
+#
+# Form 1 (no arguments)
+# $ git post-review
+# Posts reviews to the current branch's remote tracking branch (if set)
+# or to matching named remote branch.
+#
+# Form 2 (1 argument)
+# $ git post-review <remote-branch>
+# Posts commits from the currently checked out local branch to the specified remote branch.
+# Note that the argument should not include the full remote path prefix.
+#
+# Form 3 (2 arguments)
+# $ git post-review <local-branch> <remote-branch>
+# Posts commits from the specified local branch to the specified remote branch.
+
+local_branch=`git rev-parse --abbrev-ref HEAD`
+remote_branch=`git rev-parse --abbrev-ref --symbolic-full-name @{u}`
+remote_name=`git remote`
+
+if [ -z "${remote_branch}" ]; then
+  remote_branch=$local_branch
+else
+  remote_branch=${remote_branch#${remote_name}/}
+fi
+
+if [ "$2" != "" ]; then
+    local_branch=$1
+    remote_branch=$2
+elif [ "$1" != "" ]; then
+    remote_branch=$1
+fi
+
+git push $remote_name $local_branch:refs/for/$remote_branch

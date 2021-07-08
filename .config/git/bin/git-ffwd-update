@@ -1,0 +1,43 @@
+#!/bin/bash
+
+red='\033[0;31m'
+nc='\033[0m'
+green='\033[1;32m'
+purple='\033[1;35m'
+
+main() {
+  REMOTES="$@";
+  if [ -z "$REMOTES" ]; then
+    REMOTES=$(git remote);
+  fi
+  REMOTES=$(echo "$REMOTES" | xargs -n1 echo)
+  CLB=$(git branch -l|awk '/^\*/{print $2}');
+  echo "$REMOTES" | while read REMOTE; do
+    git remote update $REMOTE
+    git remote show $REMOTE -n \
+    | awk '/merges with remote/{print $5" "$1}' \
+    | while read line; do
+      RB=$(echo "$line"|cut -f1 -d" ");
+      ARB="refs/remotes/$REMOTE/$RB";
+      LB=$(echo "$line"|cut -f2 -d" ");
+      ALB="refs/heads/$LB";
+      NBEHIND=$(( $(git rev-list --count $ALB..$ARB 2>/dev/null) +0));
+      NAHEAD=$(( $(git rev-list --count $ARB..$ALB 2>/dev/null) +0));
+      if [ "$NBEHIND" -gt 0 ]; then
+        if [ "$NAHEAD" -gt 0 ]; then
+          echo -e " Branch $LB is $NBEHIND commit(s) behind and $NAHEAD commit(s) ahead of $REMOTE/$RB. ${red}Could not be fast-forwarded.${nc}";
+        elif [ "$LB" = "$CLB" ]; then
+          echo -e " Branch $LB was $NBEHIND commit(s) behind of $REMOTE/$RB. ${purple}Fast-forward merge performed.${nc}";
+          git merge -q $ARB;
+        else
+          echo -e " Branch $LB was $NBEHIND commit(s) behind of $REMOTE/$RB. ${purple}Resetting local branch to remote.${nc}";
+          git branch -f $LB -t $ARB >/dev/null;
+        fi
+      else
+        echo -e " Branch $LB is up to date. ${green}No changes made.${nc}";
+      fi
+    done
+  done
+}
+
+main $@

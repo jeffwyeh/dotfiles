@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# This pushes commits to gerrit code review.
+#
+# Form 1 (1 argument)
+# $ git post-gerrit [private|wip|ready]
+#
+# Form 2 (2 argument)
+# $ git post-gerrit [private|wip|ready] <remote-branch>
+#
+# Form 3 (3 arguments)
+# $ git post-gerrit [private|wip|ready] <local-branch> <remote-branch>
+
+local_branch=`git rev-parse --abbrev-ref HEAD`
+remote_name=`git remote | head -n1`
+remote_branch=`git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null`
+if [ ! -z "$remote_branch" ]; then
+  remote_name=`echo $remote_branch | cut -d/ -f1`
+fi
+
+if [ -z "${remote_branch}" ]; then
+  remote_branch=$local_branch
+else
+  remote_branch=${remote_branch#${remote_name}/}
+fi
+
+if [ "$3" != "" ]; then
+    local_branch=$2
+    remote_branch=$3
+elif [ "$2" != "" ]; then
+    remote_branch=$2
+fi
+
+git push $remote_name $local_branch:refs/for/$remote_branch%$1
+

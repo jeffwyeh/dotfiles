@@ -1,0 +1,13 @@
+[user]
+	name = Jeff Yeh
+	email = yehyeh@amazon.com
+[core]
+	excludesfile = $HOME/.config/git/excludes
+[include]
+	path = $HOME/.config/git/aliases
+[pull]
+	ff = only
+  rebase = true
+[core]
+  editor = vim
+

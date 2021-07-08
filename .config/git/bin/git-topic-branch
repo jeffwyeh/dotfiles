@@ -1,0 +1,54 @@
+#!/bin/bash
+# This creates a topic/ branch based from the last tag point.
+# The new branch name will using the following format:
+# <arg0>/<current-branch-name>/<arg1>
+# If a 3rd param is given, the branch created will be:
+# <arg0>/<arg2>/<arg1>
+# Where the tag point is taken from <arg2>
+
+# example:
+#
+# $ git rev-parse --abbrev-ref HEAD
+# master
+#
+# $ git tag
+# v2.70.7.0
+# v2.70.8.0
+# v2.70.9.0
+#
+# $ git describe
+# v2.70.9.0-65-3ef1245
+#
+# $ git topic-branch bug essa-1234-bad-logic
+#
+# $ git branch
+# *master
+# bug/master/essa-1234-bad-logic
+#
+# $ git checkout bug/master/essa-1234-bad-logic
+#
+# $ git describe
+# v2.70.9.0 
+
+if [ -z "$1" ]; then
+  echo "Missing topic type [bug|story|exp|wip|etc...]"
+  exit 1
+fi
+
+if [ -z "$2" ]; then
+  echo "Missing branch name <id>-<terse-name>"
+  exit 1
+fi
+
+upstream_branch_name=`git rev-parse --abbrev-ref HEAD`
+if [ ! -z "$3" ]; then
+  upstream_branch_name=$3
+fi
+lkgr_tag=`git describe --abbrev=0 $upstream_branch_name`
+
+new_branch_name="$1/$upstream_branch_name/$2"
+
+echo git branch $new_branch_name $lkgr_tag
+git branch $new_branch_name $lkgr_tag
+git branch -u $upstream_branch_name $new_branch_name
+

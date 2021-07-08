@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# This fetches and cherry-picks a gerrit review branch
+# There is 1 from:
+#
+# Form 1 (1 argument)
+# $ git pick-review change-num/patchset
+# Cherry picks the specified review into the current branch
+# $ git pick-review 176/1
+#
+
+remote_name=`git remote`
+full_change_id=$1
+change_id=$(echo $full_change_id | cut -f 1 -d "/")
+patchset=$(echo $full_change_id | cut -f 2 -d "/")
+change_dir=${change_id:(-2)}
+if [ ${#change_dir} -lt 2 ]; then
+  change_dir=${change_id:(-1)}
+  change_dir="0${change_dir}"
+fi
+
+if [ "$1" != "" ]; then
+  git fetch $remote_name refs/changes/$change_dir/$change_id/$patchset && git cherry-pick FETCH_HEAD
+else
+  echo "Missing arguments:"
+  echo "Usage: git pick-review #/#"
+  exit 1
+fi

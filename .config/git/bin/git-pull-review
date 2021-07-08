@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# This fetches and merges a gerrit review branch
+# There are 3 froms:
+#
+# Form 1 (1 argument)
+# $ git merge-review change-num/patchset
+# Merges the specified review into the current branch
+# $ git merge-review 176/1
+#
+# Form 2 (2 arguments)
+# $ git merge-review change-num/patchset <branch-name>
+# Checks out the specified review in a locally created branch named <branch-name> and then merges into current branch
+# $ git merge-review 176/1 bug/essms-123-terse-name
+#
+# Form 3 (3 arguments)
+# $ git merge-review change-num/patchset <from-branch-name> <to-branch-name>
+# Checks out the specified review in a locally created branch named <from-branch-name> and merges into <to-branch-name>
+# $ git merge-review 176/1 bug/essms-123-terse-name devlop
+#
+
+remote_name=`git remote`
+full_change_id=$1
+change_id=$(echo $full_change_id | cut -f 1 -d "/")
+patchset=$(echo $full_change_id | cut -f 2 -d "/")
+change_dir=${change_id:(-2)}
+if [ ${#change_dir} -lt 2 ]; then
+  change_dir=${change_id:(-1)}
+  change_dir="0${change_dir}"
+fi
+
+if [ "$3" != "" ]; then
+  git checkout $3 && git fetch $remote_name refs/changes/$change_dir/$change_id/$patchset:$2 && git merge $2
+elif [ "$2" != "" ]; then
+  git fetch $remote_name refs/changes/$change_dir/$change_id/$patchset:$2 && git merge $2
+elif [ "$1" != "" ]; then
+  git fetch $remote_name refs/changes/$change_dir/$change_id/$patchset && git merge FETCH_HEAD
+else
+  echo "Missing arguments:"
+  echo "Usage: git merge-review #/# [new-local-branch-name] [merge-to-branch]"
+  exit 1
+fi
