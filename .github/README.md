@@ -81,8 +81,6 @@ here for posterity.
 
 ## What's missing?
 
-* Git configuration files, aliases, and commands
-    * Need to think about rolling [dev-tools](https://github.com/jeffwyeh/dev-tools) into this repository
 * Making the home and end keys function correctly on Mac
     * See [this link](https://damieng.com/blog/2015/04/24/make-home-end-keys-behave-like-windows-on-mac-os-x)
     * We may be able to add this as a bootstrap step
