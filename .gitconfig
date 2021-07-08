@@ -10,4 +10,6 @@
   rebase = true
 [core]
   editor = vim
+[credential]
+  helper = cache --timeout=30000
 
