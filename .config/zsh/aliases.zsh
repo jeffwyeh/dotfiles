@@ -1,11 +1,15 @@
+# set up system specific items
+# the Linux portions are specific to AL2
 system_type=$(uname -s)
 if [ "$system_type" = "Darwin" ]; then
+   # Running on mac OS
    alias initall='kinit && mwinit'
 elif [ "$system_type" = "Linux" ]; then
+   # Running on AL2
    alias initall='kinit && mwinit -o'
 
-   # deploy an env (deprecated in favor for function)
-   #alias deploy-env='sudo ls && brazil ws env update && sudo /apollo/bin/runCommand -a Deactivate -e $env && sudo /apollo/bin/runCommand -a Activate -e $env'
+
+   # Deploy an environment
    function deploy-env {
       # check num args
       if [ "$#" -gt 2 ] || [ "$#" -lt 1 ] ; then
@@ -58,7 +62,9 @@ elif [ "$system_type" = "Linux" ]; then
       if [ "$forced" = true ] || [ "$valid_target" = true ] ; then
          echo "\nDeploying $target_env:\n"
          # if forced or a valid target, run the command
-         sudo ls && brazil ws env update && sudo /apollo/bin/runCommand -a Deactivate -e $target_env && sudo /apollo/bin/runCommand -a Activate -e $target_env
+         brazil ws env update
+         sudo /apollo/bin/runCommand -a Deactivate -e $target_env
+         sudo /apollo/bin/runCommand -a Activate -e $target_env
       else
          echo "\nInvalid target environment. Use '-f' to force deployment.\n"
          echo "Usage:"
@@ -87,8 +93,6 @@ elif [ "$system_type" = "Linux" ]; then
    }
 fi
 
-# quick authentication
-
 # brazil aliases
 alias bb=brazil-build
 alias bba='brazil-build apollo-pkg'
@@ -102,6 +106,7 @@ alias bbr='brc brazil-build'
 alias bball='brc --allPackages'
 alias bbb='brc --allPackages brazil-build'
 alias bbra='bbr apollo-pkg'
+alias sam='brazil-build-tool-exec sam'
 
 # alias for running commands on all packages
 function bap {
