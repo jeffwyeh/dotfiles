@@ -82,7 +82,8 @@ yabai -m rule --add app='^Activity Monitor$' manage=off
 yabai -m rule --add app='^Amazon Chime$' manage=off
 
 # float outlook meeting reminders
-yabai -m rule --add app='^Microsoft Outlook$' title='Reminder' manage=off
+#yabai -m rule --add app='^Microsoft Outlook$' title='Reminder' manage=off
+yabai -m rule --add app='^Microsoft Outlook$' title!='^(Calendar|Inbox)' manage=off
 
 # float finder
 yabai -m rule --add app='^Finder$' manage=off
@@ -91,7 +92,7 @@ yabai -m rule --add app='^Finder$' manage=off
 yabai -m rule --add app='^Friendly Streaming$' title='Untitled' manage=off
 
 # float connections
-yabai -m rule --add app='^Amazon Connections$' manage=off
+yabai -m rule --add title='^Amazon Connections$' manage=off
 
 # set up spacebar
 SPACEBAR_HEIGHT=$(spacebar -m config height)
