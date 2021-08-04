@@ -94,6 +94,9 @@ yabai -m rule --add app='^Friendly Streaming$' title='Untitled' manage=off
 # float connections
 yabai -m rule --add title='^Amazon Connections$' manage=off
 
+# float vysor
+yabai -m rule --add app='Vysor' manage=off
+
 # set up spacebar
 SPACEBAR_HEIGHT=$(spacebar -m config height)
 yabai -m config external_bar all:$SPACEBAR_HEIGHT:0
