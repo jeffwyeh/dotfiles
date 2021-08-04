@@ -83,7 +83,7 @@ yabai -m rule --add app='^Amazon Chime$' manage=off
 
 # float outlook meeting reminders
 #yabai -m rule --add app='^Microsoft Outlook$' title='Reminder' manage=off
-yabai -m rule --add app='^Microsoft Outlook$' title!='^(Calendar|Inbox)' manage=off
+yabai -m rule --add app='^Microsoft Outlook$' title!='(^Calendar)|(yehyeh@amazon.com$)' manage=off
 
 # float finder
 yabai -m rule --add app='^Finder$' manage=off
@@ -96,6 +96,9 @@ yabai -m rule --add title='^Amazon Connections$' manage=off
 
 # float vysor
 yabai -m rule --add app='Vysor' manage=off
+
+# float calculator
+yabai -m rule --add app='Calculator' manage=off
 
 # set up spacebar
 SPACEBAR_HEIGHT=$(spacebar -m config height)
