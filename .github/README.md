@@ -79,6 +79,10 @@ here for posterity.
     # Tell iTerm2 to use the custom preferences in the directory
     defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
 
+### Use the following color scheme for Slack (based on base16-one-dark)
+
+    #282C34,#2C3849,#E5C07B,#282C34,#3E4451,#ABB2BF,#98C379,#E06C75,#0F131B,#ABB2BF
+
 ## What's missing?
 
 * Making the home and end keys function correctly on Mac
