@@ -71,6 +71,8 @@ yabai -m rule --add app='IntelliJ IDEA' title='Project Structure' manage=off
 yabai -m rule --add app='IntelliJ IDEA' title='Preferences' manage=off
 yabai -m rule --add app='IntelliJ IDEA' title='Edit configuration' manage=off
 yabai -m rule --add app='IntelliJ IDEA' title='Connect to Remote Workspace' manage=off
+yabai -m rule --add app='IntelliJ IDEA' title='^Welcome to' manage=off
+yabai -m rule --add app='IntelliJ IDEA' title='Licenses' manage=off
 
 # float JetBrains toolbox
 yabai -m rule --add app='JetBrains Toolbox' manage=off
@@ -99,6 +101,9 @@ yabai -m rule --add app='Vysor' manage=off
 
 # float calculator
 yabai -m rule --add app='Calculator' manage=off
+
+# float dictionary
+yabai -m rule --add app='Dictionary' manage=off
 
 # set up spacebar
 SPACEBAR_HEIGHT=$(spacebar -m config height)
