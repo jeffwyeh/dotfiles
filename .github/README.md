@@ -83,6 +83,12 @@ here for posterity.
 
     #282C34,#2C3849,#E5C07B,#282C34,#3E4451,#ABB2BF,#98C379,#E06C75,#0F131B,#ABB2BF
 
+### Install [CLI for OSX dictionary](https://github.com/aztack/osx-dictionary)
+
+    wget https://raw.githubusercontent.com/takumakei/osx-dictionary/master/osx-dictionary.rb
+    brew install --HEAD -s osx-dictionary.rb
+    rm osx-dictionary.rb
+
 ## What's missing?
 
 * Making the home and end keys function correctly on Mac
