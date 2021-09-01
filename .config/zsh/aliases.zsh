@@ -75,7 +75,7 @@ elif [ "$system_type" = "Linux" ]; then
    ## sync an apollo environment from it's parent NA beta
    function apollo-parent-sync {
       # check num args
-      if [ "$#" -ne 1 ]; then
+      if [ "$#" -ne 1 ] ; then
          echo "\nInvalid number of arguments.\n"
          echo "Usage:"
          echo "   apollo-parent-sync <env/stage>"
@@ -87,7 +87,7 @@ elif [ "$system_type" = "Linux" ]; then
      stage=${1##*/}
 
      echo "Syncing $env/NA/$stage to $env/NA/yehyeh/$stage\n"
-     output=$(apollo sync --source-environment-stage $env/NA/$stage $env/NA/yehyeh/$stage)
+     output=$(/apollo/env/ApolloCommandLine/bin/apollo sync --source-environment-stage $env/NA/$stage $env/NA/yehyeh/$stage)
      deploymentid=$(echo $output | jq '.deployment_id')
      echo "https://apollo.amazon.com/deployments/$deploymentid"
    }
