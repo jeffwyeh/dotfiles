@@ -6,7 +6,7 @@ if [ "$system_type" = "Darwin" ]; then
    alias initall='kinit && mwinit'
 elif [ "$system_type" = "Linux" ]; then
    # Running on AL2
-   alias initall='kinit && mwinit -o'
+   alias initall='kinit && mwinit -o -s'
 
 
    # Deploy an environment
