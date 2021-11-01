@@ -4,6 +4,7 @@ system_type=$(uname -s)
 if [ "$system_type" = "Darwin" ]; then
    # Running on mac OS
    alias initall='kinit && mwinit'
+   alias resetsb='brew services stop spacebar && sleep 2 && brew services start spacebar'
 elif [ "$system_type" = "Linux" ]; then
    # Running on AL2
    alias initall='kinit && mwinit -o -s'
