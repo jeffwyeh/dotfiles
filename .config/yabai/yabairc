@@ -105,9 +105,15 @@ yabai -m rule --add app='Calculator' manage=off
 # float dictionary
 yabai -m rule --add app='Dictionary' manage=off
 
-# set up spacebar
-SPACEBAR_HEIGHT=$(spacebar -m config height)
+# set up menu bar padding (24 is the default menu bar height)
+#SPACEBAR_HEIGHT=$(spacebar -m config height)
+SPACEBAR_HEIGHT=24
 yabai -m config external_bar all:$SPACEBAR_HEIGHT:0
+
+# sketchybar events
+yabai -m signal --add event=window_focused action="sketchybar -m --trigger window_focus &> /dev/null"
+yabai -m signal --add event=window_title_changed action="sketchybar -m --trigger title_change &> /dev/null"
+yabai -m signal --add event=window_focused action="sketchybar -m --trigger window_focus &> /dev/null"
 
 # Limelight addon (Kill it and start it each time Yabai starts)
 #killall limelight &>/dev/null

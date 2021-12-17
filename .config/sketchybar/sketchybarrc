@@ -1,0 +1,100 @@
+############## BAR ############## 
+sketchybar -m --bar height=24        \
+                    blur_radius=50   \
+                    position=top     \
+                    padding_left=10  \
+                    padding_ri  ht=10 \
+                    color=0xffa8a8a8
+
+############## GLOBAL DEFAULTS ############## 
+sketchybar -m --default updates=when_shown                    \
+                        drawing=on                            \
+                        cache_scripts=on                      \
+                        icon.font="Font Awesome 5 Free:Solid:12.0" \
+                        icon.color=0xffffffff                 \
+                        label.font="Helvetica Neue:Bold:12.0" \
+                        label.color=0xffffffff
+
+############## DEFAULTS ###############
+sketchybar -m --default background.padding_left=8  \
+                        background.padding_right=8 \
+                        icon.y_offset=-1
+
+############## LEFT ITEMS ############## 
+# Spaces
+sketchybar -m --add       item           yabai_spaces left                                     \
+              --set       yabai_spaces   drawing=off                                           \
+                                         updates=on                                            \
+                                         script="~/.config/sketchybar/plugins/yabai_spaces.sh" \
+              --subscribe yabai_spaces   space_change window_created window_destroyed          \
+              --add       item           space_template left                                   \
+              --set       space_template icon.highlight_color=0xff9dd274                       \
+                                         icon.font="Helvetica Neue:Bold:12.0"                  \
+                                         drawing=off                                           \
+                                         click_script="yabai -m space --focus \$NAME"          \
+                                         background.color=0x00e3e6e6 \
+                                         lazy=off
+
+# Yabai float
+sketchybar -m --add       item               yabai_float left                                                    \
+              --add       event              window_focus                                                        \
+              --add       event              float_change                                                        \
+              --set       yabai_float        script="~/.config/sketchybar/plugins/yabai_float.sh"                \
+                                             click_script="~/.config/sketchybar/plugins/yabai_float_click.sh"    \
+                                             lazy=off                                                            \
+                                             icon.color=0xffbbbfbf                                               \
+              --subscribe yabai_float        front_app_switched window_focus float_change                        \
+
+############## RIGHT ITEMS ############## 
+# Date and time
+sketchybar -m --add item time right                                                 \
+              --set               time update_freq=2                                \
+                                  script="~/.config/sketchybar/plugins/time.sh"     \
+                                  background.padding_left=0                         \
+              --add item date right                                                 \
+              --set date          update_freq=60                                    \
+                                  background.color=0xffe3e6e6                       \
+                                  label.color=0xff0f1111                            \
+                                  background.height=15                              \
+                                  background.corner_radius=4                        \
+                                  icon.padding_left=6                               \
+                                  label.padding_right=6                             \
+                                  script="~/.config/sketchybar/plugins/date.sh"
+
+# Amphetamine
+sketchybar -m --add item amphetamine right                                          \
+              --set amphetamine   update_freq=10                                    \
+                                  script="~/.config/sketchybar/plugins/amphetamine.sh"
+
+# Battery                                  
+sketchybar -m --add item battery right                                              \
+              --set battery       update_freq=10                                    \
+                                  icon.padding_right=4                              \
+                                  label.color=0xff0f1111                            \
+                                  icon.color=0xff0f1111                             \
+                                  background.height=15                              \
+                                  background.corner_radius=4                        \
+                                  icon.padding_left=6                               \
+                                  label.padding_right=6                             \
+                                  script="~/.config/sketchybar/plugins/battery.sh"
+
+# Weather
+sketchybar -m --add item weather right                                             \
+              --set weather       update_freq=600                                  \
+                                  icon.padding_right=4                              \
+                                  script="~/.config/sketchybar/plugins/weather.sh" \
+                                  icon.font="Hack Nerd Font:Regular:13.0"
+
+###################### CENTER ITEMS ###################
+# Window title bar
+sketchybar -m --add event window_focus \
+              --add event title_change
+
+sketchybar -m --add item title center \
+              --set title script="$HOME/.config/sketchybar/plugins/window_title.sh" \
+              --subscribe title window_focus front_app_switched space_change title_change
+
+############## FINALIZING THE SETUP ##############
+sketchybar -m --update
+
+echo "sketchybar configuration loaded.."

@@ -52,7 +52,7 @@ hyper - x : yabai -m space --mirror x-axis
 hyper - f : yabai -m window --toggle zoom-fullscreen
 
 ## toggle float
-hyper - t : yabai -m window --toggle float
+hyper - t : yabai -m window --toggle float && sketchybar -m --trigger float_change
 
 ## Focus window up/down in stack
 ctrl - j : yabai -m window --focus stack.next || yabai -m window --focus stack.first
