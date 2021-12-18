@@ -9,10 +9,13 @@ brew "jq"
 brew "tree"
 
 tap "koekeishiya/formulae"
-tap "cmacrae/formulae"
+tap "FelixKratz/formulae"
 brew "koekeishiya/formulae/yabai"
 brew "koekeishiya/formulae/skhd"
-brew "cmacrae/formulae/spacebar"
+brew "FelixKratz/formulae/sketchybar"
+
+#tap "cmacrae/formulae"
+#brew "cmacrae/formulae/spacebar"
 
 cask "iterm2"
 cask "visual-studio-code"

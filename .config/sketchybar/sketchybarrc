@@ -20,6 +20,12 @@ sketchybar -m --default background.padding_left=8  \
                         background.padding_right=8 \
                         icon.y_offset=-1
 
+############## EVENTS ##############
+sketchybar -m --add event window_created   \
+              --add event window_destroyed \
+              --add event window_focus     \
+              --add event float_change
+
 ############## LEFT ITEMS ############## 
 # Spaces
 sketchybar -m --add       item           yabai_spaces left                                     \
@@ -37,8 +43,6 @@ sketchybar -m --add       item           yabai_spaces left                      
 
 # Yabai float
 sketchybar -m --add       item               yabai_float left                                                    \
-              --add       event              window_focus                                                        \
-              --add       event              float_change                                                        \
               --set       yabai_float        script="~/.config/sketchybar/plugins/yabai_float.sh"                \
                                              click_script="~/.config/sketchybar/plugins/yabai_float_click.sh"    \
                                              lazy=off                                                            \
@@ -87,9 +91,6 @@ sketchybar -m --add item weather right                                          
 
 ###################### CENTER ITEMS ###################
 # Window title bar
-sketchybar -m --add event window_focus \
-              --add event title_change
-
 sketchybar -m --add item title center \
               --set title script="$HOME/.config/sketchybar/plugins/window_title.sh" \
               --subscribe title window_focus front_app_switched space_change title_change

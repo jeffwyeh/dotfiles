@@ -95,5 +95,3 @@ alias ll='ls -lAFh'
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-
-

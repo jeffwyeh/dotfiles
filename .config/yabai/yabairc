@@ -113,7 +113,8 @@ yabai -m config external_bar all:$SPACEBAR_HEIGHT:0
 # sketchybar events
 yabai -m signal --add event=window_focused action="sketchybar -m --trigger window_focus &> /dev/null"
 yabai -m signal --add event=window_title_changed action="sketchybar -m --trigger title_change &> /dev/null"
-yabai -m signal --add event=window_focused action="sketchybar -m --trigger window_focus &> /dev/null"
+yabai -m signal --add event=window_created action="sketchybar -m --trigger window_created &> /dev/null"
+yabai -m signal --add event=window_destroyed action="sketchybar -m --trigger window_destroyed &> /dev/null"
 
 # Limelight addon (Kill it and start it each time Yabai starts)
 #killall limelight &>/dev/null
