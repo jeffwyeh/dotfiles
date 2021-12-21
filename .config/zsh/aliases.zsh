@@ -125,6 +125,10 @@ function bap {
 # Colored output for cat and less
 alias ccat='pygmentize -g'
 function cless() {
+   if [ $# -lt 1 ]; then
+      echo 'Missing filename'
+      return 1
+   fi
    pygmentize -g $1 | less -R
 }
 
