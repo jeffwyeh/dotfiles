@@ -7,6 +7,7 @@ brew "coreutils"
 brew "git"
 brew "jq"
 brew "tree"
+brew "pygmentize"
 
 tap "koekeishiya/formulae"
 tap "FelixKratz/formulae"
