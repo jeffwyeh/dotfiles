@@ -121,3 +121,10 @@ function bap {
    printf -v cmd 'echo "\n$div"; echo "${name}"; echo "$div"; (%s)' "$*"
    brc -all --continue $cmd
 }
+
+# Colored output for cat and less
+alias ccat='pygmentize -g'
+function cless() {
+   pygmentize -g $1 | less -R
+}
+
