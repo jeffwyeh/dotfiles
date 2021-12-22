@@ -8,6 +8,7 @@ brew "git"
 brew "jq"
 brew "tree"
 brew "pygmentize"
+brew "ifstat"
 
 tap "koekeishiya/formulae"
 tap "FelixKratz/formulae"
