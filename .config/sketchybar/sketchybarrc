@@ -147,8 +147,16 @@ sketchybar -m --add item weather right                                          
 ###################### CENTER ITEMS ###################
 # Window title bar
 sketchybar -m --add item title center \
-              --set title script="$HOME/.config/sketchybar/plugins/window_title.sh" \
+              --set title script="~/.config/sketchybar/plugins/window_title.sh" \
               --subscribe title window_focus front_app_switched space_change title_change
+
+# Yabai stack indicator
+sketchybar -m --add       item           stack center                                          \
+              --set       stack          script="~/.config/sketchybar/plugins/stack.sh"        \
+              --set       stack          label.icon="Hack Nerd Font:Regular:12.0"                 \
+              --subscribe stack          window_focus front_app_switched space_change title_change \
+              --set       stack          drawing=on                                            \
+              --set       stack          update_freq=0
 
 ############## FINALIZING THE SETUP ##############
 sketchybar -m --update
