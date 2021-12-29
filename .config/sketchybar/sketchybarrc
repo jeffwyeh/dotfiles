@@ -24,7 +24,10 @@ sketchybar -m --default background.padding_left=8  \
 sketchybar -m --add event window_created   \
               --add event window_destroyed \
               --add event window_focus     \
-              --add event float_change
+              --add event float_change     \
+              --add event title_change     \
+              --add event space_change     \
+              --add event front_app_switched
 
 ############## LEFT ITEMS ############## 
 # Spaces
@@ -41,7 +44,7 @@ sketchybar -m --add       item           yabai_spaces left                      
                                          background.color=0x00e3e6e6 \
                                          lazy=off
 
-# Yabai float
+# Yabai float indicator
 sketchybar -m --add       item               yabai_float left                                                    \
               --set       yabai_float        script="~/.config/sketchybar/plugins/yabai_float.sh"                \
                                              click_script="~/.config/sketchybar/plugins/yabai_float_click.sh"    \
@@ -49,7 +52,7 @@ sketchybar -m --add       item               yabai_float left                   
                                              icon.color=0xffbbbfbf                                               \
               --subscribe yabai_float        front_app_switched window_focus float_change                        \
 
-# Monitor - Network
+# Monitor - network
 sketchybar -m --add item network_up left                                            \
               --set network_up    label.font="Helvetica Neue:Bold:10.0"             \
                                   icon.font="Font Awesome 5 Free:Solid:10.0"        \
@@ -101,7 +104,7 @@ sketchybar -m --add item battery right                                          
                                   label.padding_right=6                             \
                                   script="~/.config/sketchybar/plugins/battery.sh"
 
-# Monitor - Disk
+# Monitor - disk
 sketchybar -m --add item disk_label right                               \
               --set disk_label    label.font="Helvetica Neue:Bold:10.0" \
                                   label=DSK                             \
@@ -155,7 +158,13 @@ sketchybar -m --add       item           stack center                           
               --set       stack          script="~/.config/sketchybar/plugins/stack.sh"        \
               --subscribe stack          window_focus front_app_switched space_change title_change \
               --set       stack          drawing=on                                            \
-              --set       stack          update_freq=0
+              --set       stack          update_freq=0                                         \
+              --set       stack          background.padding_left=0
+
+############## TEST ITEMS ##############
+# Battery alias
+#sketchybar -m --add alias "Control Center,Battery" left \
+#              --set "Control Center,Battery" update_freq=2
 
 ############## FINALIZING THE SETUP ##############
 sketchybar -m --update
