@@ -10,16 +10,22 @@ COUNT=0
 while read -r index window yabai_name display visible
 do
   COUNT=$((COUNT+1))
-  NAME="$(echo "${yabai_name}" | tr -d "'")"
-  if [ "${window}" = "null" ]; then
-    label="${STATIC_NAMES[${index}]}"
-  else
-    label="${STATIC_NAMES[${index}]}°"
+  label="${STATIC_NAMES[${index}]}"
+  if [ "${label}" = "" ]; then
+    # We are out of index for Roman numerals, fall back to Arabic
+    label="${index}"
   fi
+
+  # Add the indicator for window presence in space
+  if [ "${window}" != "null" ]; then
+    label="${label}°"
+  fi
+  
+  # Populate the names for sketchybar items
+  NAME="$(echo "${yabai_name}" | tr -d "'")"
   if [ "$NAME" = "" ] || [ "$NAME" = " " ]; then 
     NAME="${index}"
   fi
-  
   NAMES="$NAMES $NAME"
   args+=(--clone "$NAME" space_template after \
          --set "$NAME" label="${label}" \
@@ -29,7 +35,7 @@ do
                        drawing=on)
 done <<< "$QUERY"
 
-# Reorder them and stick them onto sketchybar
+# Reorder items and stick each item onto sketchybar
 args+=(--reorder $NAMES)
 sketchybar -m ${args[@]} &> /dev/null 
 
