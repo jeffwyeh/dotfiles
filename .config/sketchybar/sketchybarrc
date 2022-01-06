@@ -3,8 +3,7 @@ sketchybar -m --bar height=24        \
                     blur_radius=50   \
                     position=top     \
                     padding_left=10  \
-                    padding_ri  ht=10 \
-                    color=0xffa8a8a8
+                    padding_right=10 \
 
 ############## GLOBAL DEFAULTS ############## 
 sketchybar -m --default updates=when_shown                    \
