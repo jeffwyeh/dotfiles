@@ -1,4 +1,4 @@
-#!/bin/zsh
+# Show the weather with an icon and temperature in F
 
 API_KEY="64c19380366a4e4d92c212110211712" # insert api key here
 CITY="85248" # insert city here
@@ -121,4 +121,3 @@ sketchybar -m \
         icon="$icon" \
         icon.y_offset=0 \
         label="${temp}°F"
-

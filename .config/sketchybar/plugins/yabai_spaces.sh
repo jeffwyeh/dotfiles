@@ -1,4 +1,6 @@
-#!/usr/bin/env bash
+# Show a list of spaces on the monitor
+# The current space will be highlighted, and a marker will indicate
+# the presence of windows in that space.
 
 STATIC_NAMES=("" "I" "II" "III" "IV" "V" "VI" "VII" "VIII" "IX" "X" "XI" "XII" "XIII" "XIV" "XV") #0 to 15
 args=()
@@ -49,4 +51,3 @@ do
   sketchybar -m --remove "${CURRENT_SPACE_COUNT}"
   CURRENT_SPACE_COUNT=$((CURRENT_SPACE_COUNT-1))
 done
-

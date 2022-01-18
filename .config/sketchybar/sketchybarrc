@@ -6,13 +6,14 @@ sketchybar -m --bar height=24        \
                     padding_right=10 \
 
 ############## GLOBAL DEFAULTS ############## 
-sketchybar -m --default updates=when_shown                    \
-                        drawing=on                            \
-                        cache_scripts=on                      \
-                        icon.font="Font Awesome 5 Free:Solid:12.0" \
-                        icon.color=0xffffffff                 \
-                        label.font="Helvetica Neue:Bold:12.0" \
-                        label.color=0xffffffff
+source ~/.config/sketchybar/sketchybar_vars.sh
+sketchybar -m --default updates=when_shown        \
+                        drawing=on                \
+                        cache_scripts=on          \
+                        icon.font="$FONT_AWESOME" \
+                        label.font="$HELVETICA"   \
+                        icon.color=$WHITE         \
+                        label.color=$WHITE
 
 ############## DEFAULTS ###############
 sketchybar -m --default background.padding_left=8  \
@@ -36,37 +37,36 @@ sketchybar -m --add       item           yabai_spaces left                      
                                          script="~/.config/sketchybar/plugins/yabai_spaces.sh" \
               --subscribe yabai_spaces   space_change window_created window_destroyed          \
               --add       item           space_template left                                   \
-              --set       space_template icon.highlight_color=0xff9dd274                       \
-                                         icon.font="Helvetica Neue:Bold:12.0"                  \
+              --set       space_template icon.highlight_color=$BLUE                            \
+                                         icon.font="$HELVETICA"                                \
                                          drawing=off                                           \
                                          click_script="yabai -m space --focus \$NAME"          \
-                                         background.color=0x00e3e6e6 \
                                          lazy=off
 
 # Yabai float indicator
-sketchybar -m --add       item               yabai_float left                                                    \
-              --set       yabai_float        script="~/.config/sketchybar/plugins/yabai_float.sh"                \
-                                             click_script="~/.config/sketchybar/plugins/yabai_float_click.sh"    \
-                                             lazy=off                                                            \
-                                             icon.color=0xffbbbfbf                                               \
-              --subscribe yabai_float        front_app_switched window_focus float_change                        \
+sketchybar -m --add       item               yabai_float left                                                 \
+              --set       yabai_float        script="~/.config/sketchybar/plugins/yabai_float.sh"             \
+                                             click_script="~/.config/sketchybar/plugins/yabai_float_click.sh" \
+                                             lazy=off                                                         \
+                                             icon.color=$GRAY                                                 \
+              --subscribe yabai_float        front_app_switched window_focus float_change
 
 # Monitor - network
 sketchybar -m --add item network_up left                                            \
-              --set network_up    label.font="Helvetica Neue:Bold:10.0"             \
-                                  icon.font="Font Awesome 5 Free:Solid:10.0"        \
+              --set network_up    label.font="$HELVETICA_S"                         \
+                                  icon.font="$FONT_AWESOME_S"                       \
                                   icon=                                            \
-                                  icon.highlight_color=0xffff8c8c                   \
+                                  icon.highlight_color=$RED                         \
                                   y_offset=6                                        \
                                   width=0                                           \
                                   update_freq=2                                     \
                                   icon.padding_right=4                              \
                                   script="~/.config/sketchybar/plugins/network.sh"  \
               --add item network_down left                                          \
-              --set network_down  label.font="Helvetica Neue:Bold:10.0"             \
-                                  icon.font="Font Awesome 5 Free:Solid:10.0"        \
+              --set network_down  label.font="$HELVETICA_S"                         \
+                                  icon.font="$FONT_AWESOME_S"                       \
                                   icon=                                            \
-                                  icon.highlight_color=0xff6ed6e6                   \
+                                  icon.highlight_color=$BLUE                        \
                                   icon.padding_right=4                              \
                                   y_offset=-4
 
@@ -78,8 +78,8 @@ sketchybar -m --add item time right                                             
                                   background.padding_left=0                         \
               --add item date right                                                 \
               --set date          update_freq=60                                    \
-                                  background.color=0xffe3e6e6                       \
-                                  label.color=0xff0f1111                            \
+                                  background.color=$GRAY_LIGHT                      \
+                                  label.color=$GRAY_DARK                            \
                                   background.height=15                              \
                                   background.corner_radius=4                        \
                                   icon.padding_left=6                               \
@@ -95,8 +95,8 @@ sketchybar -m --add item amphetamine right                                      
 sketchybar -m --add item battery right                                              \
               --set battery       update_freq=10                                    \
                                   icon.padding_right=4                              \
-                                  label.color=0xff0f1111                            \
-                                  icon.color=0xff0f1111                             \
+                                  label.color=$GRAY_DARK                            \
+                                  icon.color=$GRAY_DARK                             \
                                   background.height=15                              \
                                   background.corner_radius=4                        \
                                   icon.padding_left=6                               \
@@ -105,36 +105,36 @@ sketchybar -m --add item battery right                                          
 
 # Monitor - disk
 sketchybar -m --add item disk_label right                               \
-              --set disk_label    label.font="Helvetica Neue:Bold:10.0" \
+              --set disk_label    label.font="$HELVETICA_S"             \
                                   label=DSK                             \
                                   y_offset=6                            \
                                   width=0                               \
               --add item disk_percent right                             \
-              --set disk_percent  label.font="Helvetica Neue:Bold:10.0" \
+              --set disk_percent  label.font="$HELVETICA_S"             \
                                   y_offset=-4                           \
                                   update_freq=1                         \
                                   script="~/.config/sketchybar/plugins/disk.sh"
                                   
 # Monitor - RAM
 sketchybar -m --add item ram_label right                                \
-              --set ram_label     label.font="Helvetica Neue:Bold:10.0" \
+              --set ram_label     label.font="$HELVETICA_S"             \
                                   label=RAM                             \
                                   y_offset=6                            \
                                   width=0                               \
               --add item ram_percent right                              \
-              --set ram_percent   label.font="Helvetica Neue:Bold:10.0" \
+              --set ram_percent   label.font="$HELVETICA_S"             \
                                   y_offset=-4                           \
                                   update_freq=1                         \
                                   script="~/.config/sketchybar/plugins/ram.sh"
 
 # Monitor - CPU
 sketchybar -m --add item cpu_label right                                \
-              --set cpu_label     label.font="Helvetica Neue:Bold:10.0" \
+              --set cpu_label     label.font="$HELVETICA_S"             \
                                   label=CPU                             \
                                   y_offset=6                            \
                                   width=0                               \
               --add item cpu_percent right                              \
-              --set cpu_percent   label.font="Helvetica Neue:Bold:10.0" \
+              --set cpu_percent   label.font="$HELVETICA_S"             \
                                   y_offset=-4                           \
                                   update_freq=1                         \
                                   script="~/.config/sketchybar/plugins/cpu.sh"
@@ -144,7 +144,7 @@ sketchybar -m --add item weather right                                          
               --set weather       update_freq=600                                  \
                                   icon.padding_right=4                             \
                                   script="~/.config/sketchybar/plugins/weather.sh" \
-                                  icon.font="Hack Nerd Font:Regular:13.0"
+                                  icon.font="$HACK_NERD"
 
 ###################### CENTER ITEMS ###################
 # Window title bar

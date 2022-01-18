@@ -1,4 +1,7 @@
-#!/bin/bash
+# Show the order of a window in the stack (if applicable)
+# The order will be shown as empty/filled dots, unless there are more
+# than three windows in the stack. If there are more than three windows,
+# then the stack order will be shown as "[X/Y]"
 
 # Exit if Not in Stack
 CURRENT=$(yabai -m query --windows --window | jq '.["stack-index"]')
@@ -26,4 +29,3 @@ else
                     --set stack drawing=on
    fi
 fi
-

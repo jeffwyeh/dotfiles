@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+# Show an icon for the float status of the selected window
 
 case "$(yabai -m query --windows --window | jq .floating)" in
     0)
@@ -8,4 +8,3 @@ case "$(yabai -m query --windows --window | jq .floating)" in
     sketchybar -m --set yabai_float icon=""
     ;;
 esac
-

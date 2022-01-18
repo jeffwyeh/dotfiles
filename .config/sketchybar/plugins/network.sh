@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+# Show the network usage as a stacked item
+
 UPDOWN=$(ifstat -i "en0" -b 0.1 1 | tail -n1)
 DOWN=$(echo $UPDOWN | awk "{ print \$1 }" | cut -f1 -d ".")
 UP=$(echo $UPDOWN | awk "{ print \$2 }" | cut -f1 -d ".")
@@ -19,4 +20,3 @@ fi
 
 sketchybar -m --set network_down label="$DOWN_FORMAT" icon.highlight=$(if [ "$DOWN" -gt "0" ]; then echo "on"; else echo "off"; fi) \
                     --set network_up label="$UP_FORMAT" icon.highlight=$(if [ "$UP" -gt "0" ]; then echo "on"; else echo "off"; fi)
-

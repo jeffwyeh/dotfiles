@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
+# Show the date as "Mon 21 Feb"
 
-sketchybar -m --set $NAME label="$(date '+%a %d. %b')"
-
+sketchybar -m --set $NAME label="$(date '+%a %d %b')"

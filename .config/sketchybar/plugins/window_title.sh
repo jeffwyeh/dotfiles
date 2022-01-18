@@ -1,4 +1,4 @@
-#!/bin/bash
+# Show the window title
 
 WINDOW_TITLE=$(yabai -m query --windows --window | jq -r '.title')
 
@@ -14,4 +14,3 @@ fi
 
 sketchybar -m --set title \
     label="$WINDOW_TITLE"
-

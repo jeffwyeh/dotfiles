@@ -1,12 +1,14 @@
-#!/bin/bash
+# Icon for amphetamine status
+
+BLUE="0xff6ed6e6"
+RED="0xffff8c8c"
 
 if [[ $(pmset -g assertions | grep "Amphetamine") ]]; then
-   COLOR="0xffff8c8c"
+   COLOR=$RED
 else
-   COLOR="0xff6ed6e6"
+   COLOR=$BLUE
 fi
 
 sketchybar -m --set amphetamine \
    icon.color=$COLOR \
    icon=""
-
