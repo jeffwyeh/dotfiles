@@ -152,6 +152,11 @@ sketchybar -m --add item title center \
               --set title script="~/.config/sketchybar/plugins/window_title.sh" \
               --subscribe title window_focus front_app_switched space_change title_change
 
+# New window title bar
+#sketchybar --add item system.label left \
+#           --set system.label script="sketchybar --set \$NAME label=\"\$INFO\"" \
+#           --subscribe system.label front_app_switched
+
 # Yabai stack indicator
 sketchybar -m --add       item           stack center                                          \
               --set       stack          script="~/.config/sketchybar/plugins/stack.sh"        \
