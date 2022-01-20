@@ -55,8 +55,9 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin()
 Plug 'vim-airline/vim-airline'
-Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'joshdick/onedark.vim'
+Plug 'fladson/vim-kitty'
 
 " On-demand loading
 " Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -167,7 +168,7 @@ set foldcolumn=1
 " Enable syntax highlighting
 syntax enable
 
-colorscheme base16-default-dark
+colorscheme onedark
 
 set background=dark
 
@@ -204,7 +205,10 @@ set ffs=unix,dos,mac
 let g:airline_powerline_fonts = 1
 
 " Make airline theme match
-let g:airline_theme='base16'
+let g:airline_theme='onedark'
+
+" Prevent background from going transparent
+let &t_ut=''
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
