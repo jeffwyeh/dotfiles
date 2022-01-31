@@ -1253,6 +1253,8 @@
 			<string>/Users/yehyeh</string>
 		</dict>
 	</array>
+	<key>OnlyWhenMoreTabs</key>
+	<false/>
 	<key>OpenArrangementAtStartup</key>
 	<false/>
 	<key>OpenNoWindowsAtStartup</key>
@@ -1291,7 +1293,7 @@
 		</dict>
 	</dict>
 	<key>PromptOnQuit</key>
-	<true/>
+	<false/>
 	<key>ShowFullScreenTabBar</key>
 	<true/>
 	<key>SoundForEsc</key>
