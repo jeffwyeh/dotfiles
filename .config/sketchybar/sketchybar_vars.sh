@@ -17,5 +17,5 @@ HELVETICA="Helvetica Neue:Bold:12.0"
 FONT_AWESOME_S="Font Awesome 5 Free:Solid:10.0"
 HELVETICA_S="Helvetica Neue:Bold:10.0"
 
-# Hack Nerd for weather
-HACK_NERD="Hack Nerd Font:Regular:13.0"
+# Nerd Font for weather (updated to 
+NERD_FONT="FiraCode Nerd Font:Regular:13.0"

@@ -144,7 +144,7 @@ sketchybar -m --add item weather right                                          
               --set weather       update_freq=600                                  \
                                   icon.padding_right=4                             \
                                   script="~/.config/sketchybar/plugins/weather.sh" \
-                                  icon.font="$HACK_NERD"
+                                  icon.font="$NERD_FONT"
 
 ###################### CENTER ITEMS ###################
 # Window title bar
