@@ -2,3 +2,4 @@
 *.idea/*
 build
 annotation-generated-src
+.attach_pid*
