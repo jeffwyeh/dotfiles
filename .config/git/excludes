@@ -2,4 +2,5 @@
 *.idea/*
 build
 annotation-generated-src
-.attach_pid*
+*.attach_pid*
+/var/
