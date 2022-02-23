@@ -4,3 +4,4 @@ build
 annotation-generated-src
 *.attach_pid*
 /var/
+**/.DS_Store
