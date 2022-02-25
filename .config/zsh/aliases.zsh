@@ -4,7 +4,7 @@ system_type=$(uname -s)
 if [ "$system_type" = "Darwin" ]; then
    # Running on mac OS
    alias initall='kinit && mwinit -s --aea'
-   alias resetsb='brew services stop spacebar && sleep 2 && brew services start spacebar'
+   alias cdra='cloud-desktop remote add --host yehyeh.aka.corp.amazon.com -r /workplace -d '
 
    # jenv setup
    eval export PATH="/Users/yehyeh/.jenv/shims:${PATH}"
