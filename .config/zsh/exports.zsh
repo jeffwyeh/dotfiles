@@ -7,8 +7,9 @@ if [ "$system_type" = "Darwin" ]; then
 elif [ "$system_type" = "Linux" ]; then
    # Linux
    # envImprovement
+   # ApolloCommandLine
    # python
-   export PATH=/apollo/env/envImprovement/bin:$HOME/.local/bin:$PATH
+   export PATH=/apollo/env/ApolloCommandLine/bin:/apollo/env/envImprovement/bin:$HOME/.local/bin:$PATH
 
 fi
 
