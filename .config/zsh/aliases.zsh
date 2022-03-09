@@ -106,14 +106,32 @@ elif [ "$system_type" = "Linux" ]; then
          return 1
       fi
 
-     # parse arg
-     env=${1%/*}
-     stage=${1##*/}
+      # parse arg
+      env=${1%/*}
+      stage=${1##*/}
 
-     echo "Syncing $env/NA/$stage to $env/NA/yehyeh/$stage\n"
-     output=$(/apollo/env/ApolloCommandLine/bin/apollo sync --source-environment-stage $env/NA/$stage $env/NA/yehyeh/$stage)
-     deploymentid=$(echo $output | jq '.deployment_id')
-     echo "https://apollo.amazon.com/deployments/$deploymentid"
+      echo "Syncing $env/NA/$stage to $env/NA/yehyeh/$stage\n"
+      output=$(/apollo/env/ApolloCommandLine/bin/apollo sync --source-environment-stage $env/NA/$stage $env/NA/yehyeh/$stage)
+      deploymentid=$(echo $output | jq '.deployment_id')
+      echo "https://apollo.amazon.com/deployments/$deploymentid"
+   }
+
+   ## deploy an apollo environment based on the current brazil WS
+   function apollo-deploy-ws {
+      if [ "$#" -ne 1 ] ; then
+         echo "\nInvalid number of arguments.\n"
+         echo "Usage:"
+         echo "   apollo-deploy-ws <env/stage>"
+         return 1
+      fi
+      
+      # parse arg
+      env=${1%/*}
+      stage=${1##*/}
+
+      # get the VFI to deploy
+      output=$(brazil ws show)
+      echo $output
    }
 fi
 
