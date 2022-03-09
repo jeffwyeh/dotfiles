@@ -130,7 +130,7 @@ elif [ "$system_type" = "Linux" ]; then
       stage=${1##*/}
 
       # get the VFI to deploy
-      vs=$(brazil ws show | awk '/Version Set:/{sub(/.*Version Set:\s*/, ""); print}')
+      vs=$(brazil ws show | awk '/Version Set:/{sub(/.*Version Set:\s*/, ""); print}' | sed -r 's/@/@B/g')
       echo "Deploying $vs to $env/NA/yehyeh/$stage\n"
       output=$(apollo deploy --version-set-revision $vs $env/NA/yehyeh/$stage)
       deploymentid=$(echo $output | jq '.deployment_id')
