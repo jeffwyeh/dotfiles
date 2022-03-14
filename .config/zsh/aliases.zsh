@@ -99,40 +99,40 @@ elif [ "$system_type" = "Linux" ]; then
    ## sync an apollo environment from it's parent NA beta
    function apollo-parent-sync {
       # check num args
-      if [ "$#" -ne 1 ] ; then
+      if [ "$#" -ne 2 ] ; then
          echo "\nInvalid number of arguments.\n"
          echo "Usage:"
-         echo "   apollo-parent-sync <env/stage>"
+         echo "   apollo-parent-sync <env> <stage>"
          return 1
       fi
 
       # parse arg
-      env=${1%/*}
-      stage=${1##*/}
+      env=${1}
+      stage=${2}
 
-      echo "Syncing $env/NA/$stage to $env/NA/yehyeh/$stage\n"
-      output=$(/apollo/env/ApolloCommandLine/bin/apollo sync --source-environment-stage $env/NA/$stage $env/NA/yehyeh/$stage)
+      echo "Syncing $env/$stage to $env/yehyeh/$stage\n"
+      output=$(/apollo/env/ApolloCommandLine/bin/apollo sync --source-environment-stage $env/$stage $env/yehyeh/$stage)
       deploymentid=$(echo $output | jq '.deployment_id')
       echo "https://apollo.amazon.com/deployments/$deploymentid"
    }
 
    ## deploy an apollo environment based on the current brazil WS
    function apollo-deploy-ws {
-      if [ "$#" -ne 1 ] ; then
+      if [ "$#" -ne 2 ] ; then
          echo "\nInvalid number of arguments.\n"
          echo "Usage:"
-         echo "   apollo-deploy-ws <env/stage>"
+         echo "   apollo-deploy-ws <env> <stage>"
          return 1
       fi
       
       # parse arg
-      env=${1%/*}
-      stage=${1##*/}
+      env=${1}
+      stage=${2}
 
       # get the VFI to deploy
       vs=$(brazil ws show | awk '/Version Set:/{sub(/.*Version Set:\s*/, ""); print}' | sed -r 's/@/@B/g')
-      echo "Deploying $vs to $env/NA/yehyeh/$stage\n"
-      output=$(apollo deploy --version-set-revision $vs $env/NA/yehyeh/$stage)
+      echo "Deploying $vs to $env/yehyeh/$stage\n"
+      output=$(apollo deploy --version-set-revision $vs $env/yehyeh/$stage)
       deploymentid=$(echo $output | jq '.deployment_id')
       echo "https://apollo.amazon.com/deployments/$deploymentid"
    }
