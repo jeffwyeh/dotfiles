@@ -6,11 +6,14 @@ if [ "$system_type" = "Darwin" ]; then
    export PATH=$HOME/Library/Python/3.8/bin:$PATH
 elif [ "$system_type" = "Linux" ]; then
    # Linux
-   # envImprovement
    # ApolloCommandLine
-   # python
-   export PATH=/apollo/env/ApolloCommandLine/bin:/apollo/env/envImprovement/bin:$HOME/.local/bin:$PATH
-
+   export PATH=/apollo/env/ApolloCommandLine/bin:$PATH
+   # envImprovement
+   export PATH=/apollo/env/envImprovement/bin:$PATH
+   # local bin
+   export PATH=$HOME/.local/bin:$PATH
+   # SDETools
+   export PATH=/apollo/env/SDETools/bin:$PATH
 fi
 
 # Add toolbox
