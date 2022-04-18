@@ -3,7 +3,7 @@
 system_type=$(uname -s)
 if [ "$system_type" = "Darwin" ]; then
    # Running on mac OS
-   alias initall='kinit && mwinit -s --aea'
+   alias initall='kinit; mwinit -s --aea'
    alias cdra='cloud-desktop remote add --host yehyeh.aka.corp.amazon.com -r /workplace -d '
 
    # jenv setup
@@ -30,7 +30,7 @@ if [ "$system_type" = "Darwin" ]; then
    }
 elif [ "$system_type" = "Linux" ]; then
    # Running on AL2
-   alias initall='kinit && mwinit -o -s'
+   alias initall='kinit; mwinit -o -s'
 
 
    # Deploy an environment
