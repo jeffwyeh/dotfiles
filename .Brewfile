@@ -15,6 +15,7 @@ brew "jq"
 brew "tree"
 brew "pygments"
 brew "ifstat"
+brew "grep"
 
 # Mac customization
 brew "koekeishiya/formulae/yabai"
