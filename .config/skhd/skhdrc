@@ -49,7 +49,7 @@ hyper - y : yabai -m space --mirror y-axis
 hyper - x : yabai -m space --mirror x-axis
 
 ## toggle window fullscreen zoom
-hyper - f : yabai -m window --toggle zoom-fullscreen
+hyper - f : yabai -m window --toggle zoom-fullscreen && sketchybar -m --trigger fullscreen_change
 
 ## toggle float
 hyper - t : yabai -m window --toggle float && sketchybar -m --trigger float_change

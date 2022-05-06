@@ -21,12 +21,13 @@ sketchybar -m --default background.padding_left=8  \
                         icon.y_offset=-1
 
 ############## EVENTS ##############
-sketchybar -m --add event window_created   \
-              --add event window_destroyed \
-              --add event window_focus     \
-              --add event float_change     \
-              --add event title_change     \
-              --add event space_change     \
+sketchybar -m --add event window_created    \
+              --add event window_destroyed  \
+              --add event window_focus      \
+              --add event float_change      \
+              --add event title_change      \
+              --add event space_change      \
+              --add event fullscreen_change \
               --add event front_app_switched
 
 ############## LEFT ITEMS ############## 
@@ -49,7 +50,7 @@ sketchybar -m --add       item               yabai_float left                   
                                              click_script="~/.config/sketchybar/plugins/yabai_float_click.sh" \
                                              lazy=off                                                         \
                                              icon.color=$GRAY                                                 \
-              --subscribe yabai_float        front_app_switched window_focus float_change
+              --subscribe yabai_float        front_app_switched window_focus float_change fullscreen_change
 
 # Monitor - network
 sketchybar -m --add item network_up left                                            \
