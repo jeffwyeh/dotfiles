@@ -4,6 +4,10 @@
 # then the stack order will be shown as "[X/Y]"
 
 # Exit if Not in Stack
+
+# Source the fonts
+source ~/.config/sketchybar/sketchybar_vars.sh
+
 CURRENT=$(yabai -m query --windows --window | jq '.["stack-index"]')
 LAST=$(yabai -m query --windows --window stack.last | jq '.["stack-index"]')
 if [[ $LAST -eq 0 ]]; then
@@ -25,7 +29,7 @@ else
 
       # Display Indicator
       sketchybar -m --set stack label="$(echo $dots)" \
-                    --set stack label.font="$FONT_AWESOME" \
+                    --set stack label.font="$FONT_AWESOME_REG" \
                     --set stack drawing=on
    fi
 fi

@@ -34,6 +34,7 @@ cask "font-fira-code"
 cask "font-fira-code-nerd-font"
 cask "font-fontawesome"
 cask "dcv-viewer"
+cask "balance-lock"
 
 # Service auto restarts
 brew 'yabai', restart_service: :changed
