@@ -10,11 +10,11 @@ WHITE="0xffffffff"
 
 ### FONTS ###
 # Standard fonts
-FONT_AWESOME="Font Awesome 5 Free:Solid:12.0"
+FONT_AWESOME="Font Awesome 6 Free:Solid:12.0"
 HELVETICA="Helvetica Neue:Bold:12.0"
 
 # Small fonts for stacked items
-FONT_AWESOME_S="Font Awesome 5 Free:Solid:10.0"
+FONT_AWESOME_S="Font Awesome 6 Free:Solid:10.0"
 HELVETICA_S="Helvetica Neue:Bold:10.0"
 
 # Nerd Font for weather (updated to 

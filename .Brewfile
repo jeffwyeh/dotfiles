@@ -32,6 +32,7 @@ cask "visual-studio-code"
 cask "alacritty"
 cask "font-fira-code"
 cask "font-fira-code-nerd-font"
+cask "font-fontawesome"
 cask "dcv-viewer"
 
 # Service auto restarts
