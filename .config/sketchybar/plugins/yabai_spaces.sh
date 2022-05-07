@@ -2,9 +2,12 @@
 # The current space will be highlighted, and a marker will indicate
 # the presence of windows in that space.
 
+# Source sketchybar vars
+source ~/.config/sketchybar/sketchybar_vars.sh
+
 STATIC_NAMES=("" "I" "II" "III" "IV" "V" "VI" "VII" "VIII" "IX" "X" "XI" "XII" "XIII" "XIV" "XV") #0 to 15
 args=()
-QUERY="$(yabai -m query --spaces | jq -r '.[] | [.index, .windows[0], .label, .display, .visible] | @sh')"
+QUERY="$(yabai -m query --spaces | jq -r '.[] | [.index, .windows[0], .label, .display, ."is-visible"] | @sh')"
 NAMES=""
 COUNT=0
 
@@ -31,7 +34,7 @@ do
   NAMES="$NAMES $NAME"
   args+=(--clone "$NAME" space_template after \
          --set "$NAME" label="${label}" \
-                       label.highlight_color="0xff6ed6e6" \
+                       label.highlight_color=${BLUE} \
                        associated_display=${display} \
                        label.highlight=${visible} \
                        drawing=on)
