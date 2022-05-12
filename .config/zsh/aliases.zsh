@@ -32,6 +32,8 @@ elif [ "$system_type" = "Linux" ]; then
    # Running on AL2
    alias initall='kinit; mwinit -o -s'
 
+   # Remote Command to skip bastion
+   alias rcenv='remote-command --override-ssh "ssh -2 -q -o StrictHostKeyChecking=no -o ProxyCommand=none -t" --environment'
 
    # Deploy an environment
    function deploy-env {
