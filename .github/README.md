@@ -68,7 +68,7 @@ https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#upda
 ### Install Brew bundle (optional)
 
 Note: this step is performed during the yadm bootstrap process but is added
-here for posterity.
+here for completeness.
 
     brew bundle --global
 
