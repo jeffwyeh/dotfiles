@@ -64,6 +64,12 @@ Plug 'Valloric/YouCompleteMe'
 " Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 call plug#end()
 
+" Additional help for YCM specifically on AL2
+let s:uname = system("echo -n \"$(uname)\"")
+if !v:shell_error && s:uname == "Linux"
+   let g:ycm_path_to_python_interpreter = '/apollo/env/YouCompleteMeBuilder/bin/ycm-python'
+endif
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
