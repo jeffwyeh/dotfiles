@@ -16,7 +16,10 @@ brew "tree"
 brew "pygments"
 brew "ifstat"
 brew "grep"
-brew "vim" # Python3 support for vim for YCM
+
+# Required for YouCompleteMe
+brew "vim"
+brew "go"
 
 # Mac customization
 brew "koekeishiya/formulae/yabai"
