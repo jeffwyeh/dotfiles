@@ -77,6 +77,9 @@ yabai -m rule --add app='IntelliJ IDEA' title='Licenses' manage=off
 # float JetBrains toolbox
 yabai -m rule --add app='JetBrains Toolbox' manage=off
 
+# float JetBrains gateway
+yabai -m rule --add app='JetBrains Gateway$' manage=off
+
 # float activity monitor
 yabai -m rule --add app='^Activity Monitor$' manage=off
 
