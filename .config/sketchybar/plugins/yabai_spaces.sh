@@ -49,7 +49,7 @@ CURRENT_SPACE_COUNT=$(sketchybar -m --query bar | jq '.items | map(try tonumber 
 
 # If our current space count is greater than the count found by the yabai query,
 # go through and remove the destroyed spaces
-while [ $CURRENT_SPACE_COUNT -gt $COUNT ]
+while [[ $CURRENT_SPACE_COUNT -gt $COUNT ]]
 do
   sketchybar -m --remove "${CURRENT_SPACE_COUNT}"
   CURRENT_SPACE_COUNT=$((CURRENT_SPACE_COUNT-1))

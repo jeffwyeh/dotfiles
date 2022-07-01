@@ -2,10 +2,12 @@
 system_type=$(uname -s)
 if [ "$system_type" = "Darwin" ]; then
    # mac OS
+
    # Python
    export PATH=$HOME/Library/Python/3.8/bin:$PATH
 elif [ "$system_type" = "Linux" ]; then
    # Linux
+
    # ApolloCommandLine
    export PATH=/apollo/env/ApolloCommandLine/bin:$PATH
    # envImprovement

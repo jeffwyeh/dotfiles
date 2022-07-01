@@ -9,7 +9,6 @@ sketchybar -m --bar height=24        \
 source ~/.config/sketchybar/sketchybar_vars.sh
 sketchybar -m --default updates=when_shown        \
                         drawing=on                \
-                        cache_scripts=on          \
                         icon.font="$FONT_AWESOME" \
                         label.font="$HELVETICA"   \
                         icon.color=$WHITE         \
@@ -32,6 +31,7 @@ sketchybar -m --add event window_created    \
 
 ############## LEFT ITEMS ############## 
 # Spaces
+echo "Add space"
 sketchybar -m --add       item           yabai_spaces left                                     \
               --set       yabai_spaces   drawing=off                                           \
                                          updates=on                                            \
@@ -41,14 +41,13 @@ sketchybar -m --add       item           yabai_spaces left                      
               --set       space_template icon.highlight_color=$BLUE                            \
                                          icon.font="$HELVETICA"                                \
                                          drawing=off                                           \
-                                         click_script="yabai -m space --focus \$NAME"          \
-                                         lazy=off
+                                         click_script="yabai -m space --focus \$NAME"
 
+echo "Add float"
 # Yabai float indicator
 sketchybar -m --add       item               yabai_float left                                                 \
               --set       yabai_float        script="~/.config/sketchybar/plugins/yabai_float.sh"             \
                                              click_script="~/.config/sketchybar/plugins/yabai_float_click.sh" \
-                                             lazy=off                                                         \
                                              icon.color=$GRAY                                                 \
               --subscribe yabai_float        front_app_switched window_focus float_change fullscreen_change
 
@@ -149,14 +148,10 @@ sketchybar -m --add item weather right                                          
 
 ###################### CENTER ITEMS ###################
 # Window title bar
-sketchybar -m --add item title center \
-              --set title script="~/.config/sketchybar/plugins/window_title.sh" \
-              --subscribe title window_focus front_app_switched space_change title_change
-
-# New window title bar
-#sketchybar --add item system.label left \
-#           --set system.label script="sketchybar --set \$NAME label=\"\$INFO\"" \
-#           --subscribe system.label front_app_switched
+sketchybar --add item  system.label       center                                 \
+           --set       system.label       label=Window                         \
+                                          script="~/.config/sketchybar/plugins/window_title.sh" \
+           --subscribe system.label       front_app_switched display_change window_focus space_change title_change
 
 # Yabai stack indicator
 sketchybar -m --add       item           stack center                                          \

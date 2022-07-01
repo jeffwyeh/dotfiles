@@ -16,6 +16,7 @@ brew "tree"
 brew "pygments"
 brew "ifstat"
 brew "grep"
+brew "mdcat"
 
 # Required for YouCompleteMe
 brew "vim"
