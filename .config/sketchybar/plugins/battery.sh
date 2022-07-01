@@ -40,6 +40,8 @@ else
 fi
 
 sketchybar -m --set battery \
-  background.color=$COLOR \
-  icon=$ICON \
-  label=$(printf "${BATT_PERCENT}%%")
+                    background.color=$COLOR \
+                    icon=$ICON \
+                    label=$(printf "${BATT_PERCENT}%%") \
+              --set amphetamine_battery_transition background.color=$COLOR \
+              --set battery_transition icon.color=$COLOR

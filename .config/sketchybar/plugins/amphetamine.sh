@@ -9,6 +9,6 @@ else
    COLOR=$BLUE
 fi
 
-sketchybar -m --set amphetamine \
-   icon.color=$COLOR \
-   icon=""
+sketchybar -m --set amphetamine background.color=$COLOR \
+              --set amphetamine_transition background.color=$COLOR \
+              --set amphetamine_battery_transition icon.color=$COLOR

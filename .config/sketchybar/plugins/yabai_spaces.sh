@@ -5,52 +5,22 @@
 # Source sketchybar vars
 source ~/.config/sketchybar/sketchybar_vars.sh
 
-STATIC_NAMES=("" "I" "II" "III" "IV" "V" "VI" "VII" "VIII" "IX" "X" "XI" "XII" "XIII" "XIV" "XV") #0 to 15
-args=()
-QUERY="$(yabai -m query --spaces | jq -r '.[] | [.index, .windows[0], .label, .display, ."is-visible"] | @sh')"
-NAMES=""
-COUNT=0
+STATIC_NAMES=("I" "II" "III" "IV" "V" "VI" "VII" "VIII" "IX" "X" "XI" "XII" "XIII" "XIV" "XV") #0 to 15
 
-# Read the current spaces from the yabai query
-while read -r index window yabai_name display visible
+for index in {0..14}
 do
-  COUNT=$((COUNT+1))
-  label="${STATIC_NAMES[${index}]}"
-  if [ "${label}" = "" ]; then
-    # We are out of index for Roman numerals, fall back to Arabic
-    label="${index}"
-  fi
-
-  # Add the indicator for window presence in space
-  if [ "${window}" != "null" ]; then
-    label="${label}°"
-  fi
-  
-  # Populate the names for sketchybar items
-  NAME="$(echo "${yabai_name}" | tr -d "'")"
-  if [ "$NAME" = "" ] || [ "$NAME" = " " ]; then 
-    NAME="${index}"
-  fi
-  NAMES="$NAMES $NAME"
-  args+=(--clone "$NAME" space_template after \
-         --set "$NAME" label="${label}" \
-                       label.highlight_color=${BLUE} \
-                       associated_display=${display} \
-                       label.highlight=${visible} \
-                       drawing=on)
-done <<< "$QUERY"
-
-# Reorder items and stick each item onto sketchybar
-args+=(--reorder $NAMES)
-sketchybar -m ${args[@]} &> /dev/null 
-
-# Get the current space count
-CURRENT_SPACE_COUNT=$(sketchybar -m --query bar | jq '.items | map(try tonumber catch 0) | max')
-
-# If our current space count is greater than the count found by the yabai query,
-# go through and remove the destroyed spaces
-while [[ $CURRENT_SPACE_COUNT -gt $COUNT ]]
-do
-  sketchybar -m --remove "${CURRENT_SPACE_COUNT}"
-  CURRENT_SPACE_COUNT=$((CURRENT_SPACE_COUNT-1))
+  sketchybar --add space space.$index left                                 \
+             --set space.$index associated_space=$(($index+1))             \
+                            icon=${STATIC_NAMES[index]}                    \
+                            icon.font="$HELVETICA"                         \
+                            icon.highlight_color=$BLUE                     \
+                            icon.padding_left=8                            \
+                            icon.padding_right=8                           \
+                            background.padding_left=0                      \
+                            background.padding_right=0                     \
+                            label.drawing=off                              \
+                            background.color=$GRAY_DARK                    \
+                            background.height=24                           \
+                            script="~/.config/sketchybar/plugins/space.sh" \
+                            click_script="yabai -m space --focus $(($index+1))"
 done
