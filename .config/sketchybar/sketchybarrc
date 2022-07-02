@@ -2,8 +2,8 @@
 sketchybar -m --bar height=24        \
                     blur_radius=50   \
                     position=top     \
-                    padding_left=0  \
-                    padding_right=0 \
+                    padding_left=0   \
+                    padding_right=0
 
 ############## GLOBAL DEFAULTS ############## 
 source ~/.config/sketchybar/sketchybar_vars.sh
@@ -18,8 +18,8 @@ sketchybar -m --default updates=when_shown        \
 sketchybar -m --default background.padding_left=0  \
                         background.padding_right=0 \
                         background.height=24       \
-                        icon.padding_left=8        \
-                        icon.padding_right=8       \
+                        icon.padding_left=4        \
+                        icon.padding_right=4       \
                         icon.y_offset=0
 
 ############## EVENTS ##############
@@ -69,6 +69,7 @@ sketchybar -m --add item network_up left                                        
                                   icon=                                            \
                                   icon.highlight_color=$BLUE                        \
                                   icon.padding_right=4                              \
+                                  width=65                                          \
                                   y_offset=-4
 
 # VPN Status
@@ -105,7 +106,7 @@ sketchybar -m --add item amphetamine right                                      
               --set amphetamine   update_freq=5                                     \
                                   background.color=$GRAY_LIGHT                      \
                                   icon.color=$GRAY_DARK                             \
-                                  icon=""                                          \
+                                  icon=""                                          \
                                   script="~/.config/sketchybar/plugins/amphetamine.sh"
 
 source ~/.config/sketchybar/plugins/transition_left.sh $GRAY_LIGHT $GRAY_LIGHT amphetamine_battery_transition
