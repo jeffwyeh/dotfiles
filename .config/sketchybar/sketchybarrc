@@ -84,7 +84,7 @@ sketchybar -m --add item vpn left                                               
 sketchybar -m --add item time right                                                 \
               --set               time update_freq=2                                \
                                   script="~/.config/sketchybar/plugins/time.sh"     \
-                                  label.padding_right=10                            \
+                                  label.padding_right=20                            \
                                   icon.padding_left=0                               \
                                   background.color=$GRAY_DARK
 
