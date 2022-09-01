@@ -16,6 +16,8 @@ elif [ "$system_type" = "Linux" ]; then
    export PATH=$HOME/.local/bin:$PATH
    # SDETools
    export PATH=/apollo/env/SDETools/bin:$PATH
+   # G2S2 tools
+   export PATH=/apollo/env/G2S2CommandTools/bin:$PATH
 fi
 
 # Add toolbox
