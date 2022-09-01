@@ -108,6 +108,9 @@ yabai -m rule --add app='Calculator' manage=off
 # float dictionary
 yabai -m rule --add app='Dictionary' manage=off
 
+# float Isaac
+yabai -m rule --add title='Binding of Isaac' manage=off
+
 # set up menu bar padding (24 is the default menu bar height)
 #SPACEBAR_HEIGHT=$(spacebar -m config height)
 SPACEBAR_HEIGHT=24

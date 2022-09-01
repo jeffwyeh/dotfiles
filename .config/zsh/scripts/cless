@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Colored less output
+if ! [ -x "$(command -v pygmentize)" ]; then
+   echo 'Missing prerequisite: pygmentize'
+   exit 1
+elif [ $# -lt 1 ]; then
+   echo 'Missing filename'
+   exit 1
+fi
+pygmentize -g $1 | less -R

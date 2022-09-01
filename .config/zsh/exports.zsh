@@ -20,5 +20,5 @@ fi
 
 # Add toolbox
 # Add git helper scripts
+# Add additional shell scripts
 export PATH=$HOME/.config/git/bin:$HOME/.toolbox/bin:$PATH
-

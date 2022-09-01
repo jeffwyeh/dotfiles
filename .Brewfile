@@ -5,7 +5,6 @@ tap "homebrew/services"
 tap "homebrew/cask-fonts"
 tap "koekeishiya/formulae"
 tap "FelixKratz/formulae"
-#tap "cmacrae/formulae"
 tap "amazon/amazon"
 
 # Utilities
@@ -26,13 +25,19 @@ brew "go"
 brew "koekeishiya/formulae/yabai"
 brew "koekeishiya/formulae/skhd"
 brew "FelixKratz/formulae/sketchybar"
+brew "neovim"
+
+# spacebar - UNUSED
+#tap "cmacrae/formulae"
 #brew "cmacrae/formulae/spacebar"
 
 # Amazon
 brew "ninja-dev-sync"
 
 # Casks
+cask "wezterm"
 cask "iterm2"
+cask "kitty"
 cask "visual-studio-code"
 cask "alacritty"
 cask "font-fira-code"
@@ -40,6 +45,7 @@ cask "font-fira-code-nerd-font"
 cask "font-fontawesome"
 cask "dcv-viewer"
 cask "balance-lock"
+cask "boop"
 
 # Service auto restarts
 brew 'yabai', restart_service: :changed
