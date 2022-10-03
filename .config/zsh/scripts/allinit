@@ -1,0 +1,102 @@
+#!/usr/bin/python3
+
+import argparse
+import os
+import platform
+import subprocess
+
+class bcolors:
+    OKBLUE = '\033[34m'
+    OKCYAN = '\033[36m'
+    OKGREEN = '\033[32m'
+    WARNING = '\033[33m'
+    FAIL = '\033[31m'
+    ENDC = '\033[0m'
+    UNDERLINE = '\033[4m'
+
+
+def kinitStatus():
+    kinitStatus = subprocess.run(['klist', '-t'])
+    return kinitStatus.returncode
+
+
+def mwinitStatus():
+    mwinitStatus = subprocess.run(['mwinit', '-l'], capture_output=True, text=True)
+    return mwinitStatus.stdout == ""
+
+
+def printStatus(kinitStatus, mwinitStatus):
+    print(bcolors.OKBLUE + "  Kerberos:", end=" ")
+    if kinitStatus:
+        print(bcolors.FAIL + "Invalid" + bcolors.ENDC)
+    else:
+        print(bcolors.OKGREEN + "Valid" + bcolors.ENDC)
+    print(bcolors.OKBLUE + "    Midway:", end=" ")
+    if mwinitStatus:
+        print(bcolors.FAIL + "Invalid" + bcolors.ENDC)
+    else:
+        print(bcolors.OKGREEN + "Valid" + bcolors.ENDC)
+
+
+def kAuth():
+    print(os.getlogin() + "@ANT.AMAZON.COM's password:")
+
+    kinit = subprocess.run('kinit', capture_output=True, text=True)
+
+    # Check if output has 'Password incorrect'
+    if (kinit.stderr.find('Password incorrect') != -1):
+        print("Authentication failed")
+        if args.debug: print(kinit.stderr)
+    else:
+        print("Successfully authenticated")
+    return kinit.returncode
+
+
+def mwAuth(platform):
+    if platform == "Darwin":
+        # We're on Mac
+        cmd = ['mwinit', '-s', '--aea']
+    elif platform == "Linux":
+        # We're on Linux
+        cmd = ['mwinit', '-s', '-o']
+    else:
+        # Not sure, just run mwinit with Sentry
+        cmd = ['mwinit', '-s']
+    mwinit = subprocess.run(cmd)
+    return mwinit.returncode
+
+
+parser = argparse.ArgumentParser(description=
+    'Authenticate Kerberos and Midway.')
+parser.add_argument('-d', '--debug', action='store_true', help='Print debug information')
+parser.add_argument('-f', '--force', action='store_true', help='Force authentication')
+parser.add_argument('-s', '--status', action='store_true', help='Force authentication')
+
+args = parser.parse_args()
+
+print(bcolors.OKBLUE \
+    + "Hello! Your current authentication status is:" \
+    + bcolors.ENDC)
+
+kStatus = kinitStatus()
+mwStatus = mwinitStatus()
+printStatus(kStatus, mwStatus)
+
+if args.status:
+    exit(0)
+
+if kStatus or args.force:
+    print(bcolors.OKBLUE + "\n=== Kerberos Authentication ===" + bcolors.ENDC)
+    while True:
+        if kAuth() == 0:
+            break;
+
+if mwStatus or args.force:
+    print(bcolors.OKBLUE + "\n=== Midway Authentication ===" + bcolors.ENDC)
+
+    platform = platform.system()
+    while True:
+        if mwAuth(platform) == 0:
+            break;
+
+exit(0)
