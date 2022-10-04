@@ -22,7 +22,7 @@ def kinitStatus():
 
 def mwinitStatus():
     mwinitStatus = subprocess.run(['mwinit', '-l'], capture_output=True, text=True)
-    return mwinitStatus.stdout == ""
+    return mwinitStatus.returncode
 
 
 def printStatus(kinitStatus, mwinitStatus):
