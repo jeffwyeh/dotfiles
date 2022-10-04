@@ -16,7 +16,7 @@ class bcolors:
 
 
 def kinitStatus():
-    kinitStatus = subprocess.run(['klist', '-t'])
+    kinitStatus = subprocess.run(['klist', '-s'])
     return kinitStatus.returncode
 
 
