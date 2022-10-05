@@ -83,7 +83,7 @@ parser = argparse.ArgumentParser(description=
     'Authenticate Kerberos and Midway.')
 parser.add_argument('-d', '--debug', action='store_true', help='Print debug information')
 parser.add_argument('-f', '--force', action='store_true', help='Force authentication')
-parser.add_argument('-s', '--status', action='store_true', help='Force authentication')
+parser.add_argument('-s', '--status', action='store_true', help='Show authentication status only')
 
 args = parser.parse_args()
 
