@@ -3,7 +3,7 @@ system_type=$(uname -s)
 if [ "$system_type" = "Darwin" ]; then
    ## Running on mac OS ##
    # Initialize Kerberos and Midway
-   alias initall='kinit; mwinit -s --aea'
+   alias allinit='kinit; mwinit -s --aea'
    # Add directory sync for cloud-desktop remote
    alias cdra='cloud-desktop remote add --host yehyeh.aka.corp.amazon.com -r /workplace -d '
    # Paginated mdcat
@@ -11,7 +11,7 @@ if [ "$system_type" = "Darwin" ]; then
 elif [ "$system_type" = "Linux" ]; then
    ## Running on AL2 ##
    # Initialize Kerberos and Midway
-   alias initall='kinit; mwinit -o -s'
+   alias allinit='kinit; mwinit -o -s'
    # Remote Command to skip bastion
    alias rcenv='remote-command --override-ssh "ssh -2 -q -o StrictHostKeyChecking=no -o ProxyCommand=none -t" --environment'
 fi

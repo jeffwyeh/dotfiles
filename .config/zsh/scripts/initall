@@ -15,16 +15,21 @@ class bcolors:
     UNDERLINE = '\033[4m'
 
 
+# Check the status of Kerberos authjentication
 def kinitStatus():
-    kinitStatus = subprocess.run(['klist', '-s'])
+    kinitStatus = subprocess.run(['klist', '-s'], capture_output=True, text=True)
+    if args.debug: print("[dbg] Kerberos status return code: " + str(kinitStatus.returncode))
     return kinitStatus.returncode
 
 
+# Check the status of Midway authentication
 def mwinitStatus():
     mwinitStatus = subprocess.run(['mwinit', '-l'], capture_output=True, text=True)
+    if args.debug: print("[dbg] Midway status return code: " + str(mwinitStatus.returncode))
     return mwinitStatus.returncode
 
 
+# Print the status of Kerberos and Midway authentication
 def printStatus(kinitStatus, mwinitStatus):
     print(bcolors.OKBLUE + "  Kerberos:", end=" ")
     if kinitStatus:
@@ -38,21 +43,28 @@ def printStatus(kinitStatus, mwinitStatus):
         print(bcolors.OKGREEN + "Valid" + bcolors.ENDC)
 
 
+# Authenticate using 'kinit'
 def kAuth():
     print(os.getlogin() + "@ANT.AMAZON.COM's password:")
 
     kinit = subprocess.run('kinit', capture_output=True, text=True)
 
-    # Check if output has 'Password incorrect'
+    # Hardcoded string checks from kinit output
     if (kinit.stderr.find('Password incorrect') != -1):
         print("Authentication failed")
-        if args.debug: print(kinit.stderr)
+    elif (kinit.stderr.find('unable to reach') != -1):
+        print("No KDC found - check VPN connection")
+        # Set the return code to success so we don't try again
+        kinit.returncode = 0
     else:
         print("Successfully authenticated")
+    if args.debug: print("[dbg] Kerberos authentication return code: " + str(kinit.returncode))
+    if args.debug: print("[dbg] kinit.stderr: " + kinit.stderr)
     return kinit.returncode
 
 
 def mwAuth(platform):
+    # Dev desktop requires different flags for mwinit
     if platform == "Darwin":
         # We're on Mac
         cmd = ['mwinit', '-s', '--aea']
@@ -63,6 +75,7 @@ def mwAuth(platform):
         # Not sure, just run mwinit with Sentry
         cmd = ['mwinit', '-s']
     mwinit = subprocess.run(cmd)
+    if args.debug: print("[dbg] Midway authentication return code: " + str(mwinit.returncode))
     return mwinit.returncode
 
 
