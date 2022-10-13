@@ -15,7 +15,8 @@ class bcolors:
     UNDERLINE = '\033[4m'
 
 
-# Check the status of Kerberos authjentication
+# Check the status of Kerberos authentication
+# Returns 0 if connected, otherwise non-zero
 def kinitStatus():
     kinitStatus = subprocess.run(['klist', '-s'], capture_output=True, text=True)
     if args.debug: print("[dbg] Kerberos status return code: " + str(kinitStatus.returncode))
@@ -23,14 +24,33 @@ def kinitStatus():
 
 
 # Check the status of Midway authentication
+# Returns 0 if connected, otherwise non-zero
 def mwinitStatus():
     mwinitStatus = subprocess.run(['mwinit', '-l'], capture_output=True, text=True)
     if args.debug: print("[dbg] Midway status return code: " + str(mwinitStatus.returncode))
     return mwinitStatus.returncode
 
 
+def vpnStatus():
+    vStatus = subprocess.run(['/opt/cisco/anyconnect/bin/vpn', 'status'], capture_output=True, text=True)
+    vStatusReturn = 2
+    if (vStatus.stdout.find('Disconnected') != -1):
+        if args.debug: print("[dbg] VPN status output: " + str(vStatus.stdout))
+        vStatusReturn = 1
+    if (vStatus.stdout.find('Connected') != -1):
+        if args.debug: print("[dbg] VPN status output: " + str(vStatus.stdout))
+        vStatusReturn = 0
+    if args.debug: print("[dbg] VPN status return code: " + str(vStatus.returncode))
+    return vStatusReturn
+
+
 # Print the status of Kerberos and Midway authentication
-def printStatus(kinitStatus, mwinitStatus):
+def printStatus(vStatus, kinitStatus, mwinitStatus):
+    print(bcolors.OKBLUE + "       VPN:", end=" ")
+    if vStatus:
+        print(bcolors.FAIL + "Invalid" + bcolors.ENDC)
+    else:
+        print(bcolors.OKGREEN + "Valid" + bcolors.ENDC)
     print(bcolors.OKBLUE + "  Kerberos:", end=" ")
     if kinitStatus:
         print(bcolors.FAIL + "Invalid" + bcolors.ENDC)
@@ -44,6 +64,7 @@ def printStatus(kinitStatus, mwinitStatus):
 
 
 # Authenticate using 'kinit'
+# Returns 0 if successful, otherwise non-zero
 def kAuth():
     print(os.getlogin() + "@ANT.AMAZON.COM's password:")
 
@@ -63,6 +84,8 @@ def kAuth():
     return kinit.returncode
 
 
+# Authenticate using 'mwinit'
+# Returns 0 if successful, otherwise non-zero
 def mwAuth(platform):
     # Dev desktop requires different flags for mwinit
     if platform == "Darwin":
@@ -79,11 +102,17 @@ def mwAuth(platform):
     return mwinit.returncode
 
 
+def printHeader(header):
+    print(bcolors.OKBLUE + "\n=== " + header + "===" + bcolors.ENDC)
+
+
+# Arg parser
 parser = argparse.ArgumentParser(description=
     'Authenticate Kerberos and Midway.')
 parser.add_argument('-d', '--debug', action='store_true', help='Print debug information')
 parser.add_argument('-f', '--force', action='store_true', help='Force authentication')
 parser.add_argument('-s', '--status', action='store_true', help='Show authentication status only')
+parser.add_argument('-o', '--onetouch', action='store_true', help='Authenticate with onetouch')
 
 args = parser.parse_args()
 
@@ -91,23 +120,49 @@ print(bcolors.OKBLUE \
     + "Hello! Your current authentication status is:" \
     + bcolors.ENDC)
 
+# Get the platform
+platform = platform.system()
+
+# If on macOS and force is not specified, assume onetouch.
+if platform == "Darwin" and not args.force:
+    args.onetouch = True
+if platform == "Linux" and args.onetouch:
+    print(bcolors.WARNING \
+        + "Onetouch authentication not supported on Linux. Defaulting to regular authentication.\n" \
+        + bcolors.ENDC)
+
+# Print the current status
+vStatus = vpnStatus()
 kStatus = kinitStatus()
 mwStatus = mwinitStatus()
-printStatus(kStatus, mwStatus)
+printStatus(vStatus, kStatus, mwStatus)
 
 if args.status:
     exit(0)
 
+if args.onetouch:
+    userHome = os.path.expanduser('~')
+    if vStatus or args.force:
+        printHeader("VPN Connection")
+        vpn = subprocess.run(['expect', userHome + '/.config/zsh/scripts/mac/vpn-onetouch'])
+    if kStatus or args.force:
+        printHeader("Kerberos Authentication")
+        kinit = subprocess.run(['expect', userHome + '/.config/zsh/scripts/mac/kinit-onetouch'])
+    if mwStatus or args.force:
+        printHeader("Midway Authentication")
+        mwinit = subprocess.run(['expect', userHome + '/.config/zsh/scripts/mac/mwinit-onetouch'])
+    exit(0)
+
+# Authenticate with Kerberos
 if kStatus or args.force:
-    print(bcolors.OKBLUE + "\n=== Kerberos Authentication ===" + bcolors.ENDC)
+    printHeader("Kerberos Authentication")
     while True:
         if kAuth() == 0:
             break;
 
+# Authenticate with Midway
 if mwStatus or args.force:
-    print(bcolors.OKBLUE + "\n=== Midway Authentication ===" + bcolors.ENDC)
-
-    platform = platform.system()
+    printHeader("Midway Authentication")
     while True:
         if mwAuth(platform) == 0:
             break;

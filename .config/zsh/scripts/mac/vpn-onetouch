@@ -1,0 +1,30 @@
+#!/usr/bin/env expect -f
+
+# InfoSec consultation: https://t.corp.amazon.com/P33840651 (NO AWS AppSec)
+# https://w.amazon.com/bin/view/Users/hqzhang/VPNOneTouch/
+# USAGE: $vpn-onetouch
+
+catch {exec /bin/ps -ef | grep "Cisco AnyConnect Secure Mobility Client" | grep -v grep | awk "{print \$2}" | xargs kill} result
+
+set my_user "$env(USER)"
+set my_service midway_pin
+set my_endpoint orca.amazon.com
+#pdx-h-orca.amazon.com
+set my_password [exec security find-generic-password -a $my_user -s $my_service -w]
+send_user "Press the button on your YubiKey...\n"
+expect_user -re "(.*)\n"
+set my_yubikey $expect_out(1,string)
+set timeout -1
+spawn /opt/cisco/anyconnect/bin/vpn connect $my_endpoint
+match_max 100000
+expect -re "\r
+Group: .*?"
+send -- "orca-AmazonMacs\r"
+expect -exact "\r
+\r
+Username: "
+send -- "$my_user\r"
+expect -exact "\r
+Password: "
+send -- "$my_password$my_yubikey\r"
+expect eof

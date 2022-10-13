@@ -1,0 +1,15 @@
+#!/usr/bin/env expect -f
+
+# InfoSec consultation: https://t.corp.amazon.com/P33840651 (NO AWS AppSec)
+# https://w.amazon.com/bin/view/Users/hqzhang/VPNOneTouch/
+# USAGE: $mwinit-onetouch
+
+set my_user "$env(USER)"
+set my_service amzn_pwd
+set my_password [exec security find-generic-password -a $my_user -s $my_service -w]
+set timeout -1
+spawn kinit
+match_max 100000
+expect -re "$my_user@ANT\.AMAZON\.COM's password: "
+send -- "$my_password\r"
+expect eof

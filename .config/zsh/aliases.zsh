@@ -8,6 +8,12 @@ if [ "$system_type" = "Darwin" ]; then
    alias cdra='cloud-desktop remote add --host yehyeh.aka.corp.amazon.com -r /workplace -d '
    # Paginated mdcat
    alias mdless='mdcat -p'
+   # VPN connect
+   alias vpn='~/.config/zsh/scripts/mac/vpn-onetouch'
+   # VPN status
+   alias vpns='/opt/cisco/anyconnect/bin/vpn status'
+   # VPN disconnect
+   alias vpnd='/opt/cisco/anyconnect/bin/vpn disconnect'
 elif [ "$system_type" = "Linux" ]; then
    ## Running on AL2 ##
    # Initialize Kerberos and Midway
