@@ -44,23 +44,30 @@ def vpnStatus():
     return vStatusReturn
 
 
-# Print the status of Kerberos and Midway authentication
-def printStatus(vStatus, kinitStatus, mwinitStatus):
-    print(bcolors.OKBLUE + "       VPN:", end=" ")
-    if vStatus:
-        print(bcolors.FAIL + "Invalid" + bcolors.ENDC)
-    else:
-        print(bcolors.OKGREEN + "Valid" + bcolors.ENDC)
+# Print the status of Kerberos, and Midway authentication
+def printStatus(kinitStatus, mwinitStatus):
     print(bcolors.OKBLUE + "  Kerberos:", end=" ")
-    if kinitStatus:
-        print(bcolors.FAIL + "Invalid" + bcolors.ENDC)
-    else:
-        print(bcolors.OKGREEN + "Valid" + bcolors.ENDC)
+    if kinitStatus: print(bcolors.FAIL + "Invalid" + bcolors.ENDC)
+    else:           print(bcolors.OKGREEN + "Valid" + bcolors.ENDC)
+
     print(bcolors.OKBLUE + "    Midway:", end=" ")
-    if mwinitStatus:
-        print(bcolors.FAIL + "Invalid" + bcolors.ENDC)
-    else:
-        print(bcolors.OKGREEN + "Valid" + bcolors.ENDC)
+    if mwinitStatus: print(bcolors.FAIL + "Invalid" + bcolors.ENDC)
+    else:            print(bcolors.OKGREEN + "Valid" + bcolors.ENDC)
+
+
+# Print the status of VPN, Kerberos, and Midway authentication
+def printStatus(kinitStatus, mwinitStatus, vStatus):
+    print(bcolors.OKBLUE + "       VPN:", end=" ")
+    if vStatus: print(bcolors.FAIL + "Disconnected" + bcolors.ENDC)
+    else:       print(bcolors.OKGREEN + "Connected" + bcolors.ENDC)
+
+    print(bcolors.OKBLUE + "  Kerberos:", end=" ")
+    if kinitStatus: print(bcolors.FAIL + "Invalid" + bcolors.ENDC)
+    else:           print(bcolors.OKGREEN + "Valid" + bcolors.ENDC)
+
+    print(bcolors.OKBLUE + "    Midway:", end=" ")
+    if mwinitStatus: print(bcolors.FAIL + "Invalid" + bcolors.ENDC)
+    else:            print(bcolors.OKGREEN + "Valid" + bcolors.ENDC)
 
 
 # Authenticate using 'kinit'
@@ -132,10 +139,13 @@ if platform == "Linux" and args.onetouch:
         + bcolors.ENDC)
 
 # Print the current status
-vStatus = vpnStatus()
 kStatus = kinitStatus()
 mwStatus = mwinitStatus()
-printStatus(vStatus, kStatus, mwStatus)
+if platform == "Darwin":
+    vStatus = vpnStatus()
+    printStatus(vStatus, kStatus, mwStatus)
+else:
+    printStatus(kStatus, mwStatus)
 
 if args.status:
     exit(0)
