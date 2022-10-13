@@ -56,7 +56,7 @@ def printStatus(kinitStatus, mwinitStatus):
 
 
 # Print the status of VPN, Kerberos, and Midway authentication
-def printStatus(kinitStatus, mwinitStatus, vStatus):
+def printStatusWithVPN(kinitStatus, mwinitStatus, vStatus):
     print(bcolors.OKBLUE + "       VPN:", end=" ")
     if vStatus: print(bcolors.FAIL + "Disconnected" + bcolors.ENDC)
     else:       print(bcolors.OKGREEN + "Connected" + bcolors.ENDC)
@@ -143,7 +143,7 @@ kStatus = kinitStatus()
 mwStatus = mwinitStatus()
 if platform == "Darwin":
     vStatus = vpnStatus()
-    printStatus(vStatus, kStatus, mwStatus)
+    printStatusWithVPN(kStatus, mwStatus, vStatus)
 else:
     printStatus(kStatus, mwStatus)
 
