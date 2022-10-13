@@ -123,11 +123,6 @@ parser.add_argument('-o', '--onetouch', action='store_true', help='Authenticate 
 
 args = parser.parse_args()
 
-print(bcolors.OKBLUE \
-    + "Hello! Your current authentication status is:" \
-    + bcolors.ENDC)
-
-# Get the platform
 platform = platform.system()
 
 # If on macOS and force is not specified, assume onetouch.
@@ -138,6 +133,11 @@ if platform == "Linux" and args.onetouch:
         + "Onetouch authentication not supported on Linux. Defaulting to regular authentication.\n" \
         + bcolors.ENDC)
 
+print(bcolors.OKBLUE \
+    + "Hello! Your current authentication status is:" \
+    + bcolors.ENDC)
+
+# Get the platform
 # Print the current status
 kStatus = kinitStatus()
 mwStatus = mwinitStatus()
