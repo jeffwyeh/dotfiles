@@ -115,11 +115,18 @@ def printHeader(header):
 
 # Arg parser
 parser = argparse.ArgumentParser(description=
-    'Authenticate Kerberos and Midway.')
-parser.add_argument('-d', '--debug', action='store_true', help='Print debug information')
-parser.add_argument('-f', '--force', action='store_true', help='Force authentication')
+    'Connect to VPN and authenticate Kerberos and Midway.\n\n' + \
+        'Note: The \'-onetouch\' option will only work on Mac systems and requires passwords to\n'
+        '      be stored in the default Mac password keychain under the following services:\n' + \
+        '      - midway_pin\n' + \
+        '      - amzn_pwd\n\n' + \
+        'Passwords can be added using the following command:\n' + \
+        '   security add-generic-password -a <user> -s <service> -w',
+    formatter_class=argparse.RawTextHelpFormatter)
 parser.add_argument('-s', '--status', action='store_true', help='Show authentication status only')
 parser.add_argument('-o', '--onetouch', action='store_true', help='Authenticate with onetouch')
+parser.add_argument('-f', '--force', action='store_true', help='Force authentication')
+parser.add_argument('-d', '--debug', action='store_true', help='Print debug information')
 
 args = parser.parse_args()
 
