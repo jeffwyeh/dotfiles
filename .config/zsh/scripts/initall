@@ -132,6 +132,7 @@ if platform == "Linux" and args.onetouch:
     print(bcolors.WARNING \
         + "Onetouch authentication not supported on Linux. Defaulting to regular authentication.\n" \
         + bcolors.ENDC)
+    args.onetouch = False
 
 print(bcolors.OKBLUE \
     + "Hello! Your current authentication status is:" \
