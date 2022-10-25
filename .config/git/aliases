@@ -9,6 +9,8 @@
   cl = clone
   st = status -sb
   br = branch
+  cleanup-branch = "!git branch | grep -v ' mainline' | xargs git branch -D"
+  cb = cleanup-branch
 # Diff viewing
   dlc = diff --cached HEAD^
   dfc = diff --cached

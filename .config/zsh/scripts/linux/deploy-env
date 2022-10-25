@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## Re-deploy SIRM overrides to dev-desktop
-echo "\nDeploying ShipmentInjectionRequestManager:\n"
+echo "Deploying ShipmentInjectionRequestManager:"
 # if forced or a valid target, run the command
 brazil ws env update
 sudo /apollo/bin/runCommand -a Deactivate -e ShipmentInjectionRequestManager

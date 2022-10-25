@@ -32,7 +32,7 @@ def mwinitStatus():
 
 
 def vpnStatus():
-    vStatus = subprocess.run(['/opt/cisco/anyconnect/bin/vpn', 'status'], capture_output=True, text=True)
+    vStatus = subprocess.run(['/opt/cisco/anyconnect/bin/vpn', 'status'], capture_output=True, text=True, timeout=5)
     vStatusReturn = 2
     if (vStatus.stdout.find('Disconnected') != -1):
         if args.debug: print("[dbg] VPN status output: " + str(vStatus.stdout))
