@@ -5,6 +5,8 @@ import os
 import platform
 import subprocess
 
+from shutil import which
+
 class bcolors:
     OKBLUE = '\033[34m'
     OKCYAN = '\033[36m'
@@ -31,6 +33,10 @@ def mwinitStatus():
     return mwinitStatus.returncode
 
 
+# Check the status of VPN connection
+# Returns 2 if the VPN status command times out
+# Returns 1 if the VPN status is disconnected
+# Returns 0 if the VPN status is connected
 def vpnStatus():
     vStatusReturn = 2
     try:
@@ -113,6 +119,7 @@ def mwAuth(platform):
     return mwinit.returncode
 
 
+# Helper function for printing prettier headers
 def printHeader(header):
     print(bcolors.OKBLUE + "\n=== " + header + "===" + bcolors.ENDC)
 
@@ -134,6 +141,7 @@ parser.add_argument('-d', '--debug', action='store_true', help='Print debug info
 
 args = parser.parse_args()
 
+# Get the platform
 platform = platform.system()
 
 # If on macOS and force is not specified, assume onetouch.
@@ -149,7 +157,6 @@ print(bcolors.OKBLUE \
     + "Hello! Your current authentication status is:" \
     + bcolors.ENDC)
 
-# Get the platform
 # Print the current status
 kStatus = kinitStatus()
 mwStatus = mwinitStatus()
@@ -162,6 +169,16 @@ else:
 if args.status:
     exit(0)
 
+# Check for expect if using onetouch.
+# If expect is not found, then don't use onetouch.
+if args.onetouch:
+    if which("expect") is None:
+        print(bcolors.FAIL \
+            + "'expect' not found. Disabling onetouch." \
+            + bcolors.ENDC)
+        args.onetouch = False
+
+# Connect to VPN
 if args.onetouch:
     userHome = os.path.expanduser('~')
     if vStatus or args.force:
