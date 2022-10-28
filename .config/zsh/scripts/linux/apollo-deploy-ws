@@ -17,7 +17,10 @@ parser = argparse.ArgumentParser(description=
                 '\n'\
                 'This script takes a given Apollo environment name and stage\n'\
                 'and deploys the current workspace\'s versionset to a child\n'\
-                'environment with the user\'s alias.',
+                'environment with the user\'s alias.'\
+                '\n'\
+                'Example usage:\n'\
+                '   apollo-deploy-ws ShipmentInjectionRequestManager/NA Beta',
         formatter_class=argparse.RawTextHelpFormatter)
 parser.add_argument('env', type=str, help='Environment name')
 parser.add_argument('stage', type=str, help='Environment stage')

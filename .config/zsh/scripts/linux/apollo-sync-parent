@@ -14,7 +14,10 @@ parser = argparse.ArgumentParser(description=
         'Sync an Apollo environment from parent.\n'\
                 '\n'\
                 'This script takes a given Apollo environment name and stage\n'\
-                'and syncs it to a child environment with the user\'s alias.',
+                'and syncs it to a child environment with the user\'s alias.\n'\
+                '\n'\
+                'Example usage:\n'\
+                '   apollo-sync-parent ShipmentInjectionRequestManager/NA Beta',
         formatter_class=argparse.RawTextHelpFormatter)
 parser.add_argument('env', type=str, help='Environment name')
 parser.add_argument('stage', type=str, help='Environment stage')
