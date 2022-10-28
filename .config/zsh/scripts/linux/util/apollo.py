@@ -1,6 +1,10 @@
+# Python helpers for Apollo deployments
+#
+# This script contains some helper functions for the
+# apollo-deploy-ws and apollo-sync-parent scripts.
+
 import json
 import subprocess
-import sys
 import time
 
 class bcolors:
@@ -10,7 +14,6 @@ class bcolors:
     WARNING = '\033[33m'
     FAIL = '\033[31m'
     ENDC = '\033[0m'
-    UNDERLINE = '\033[4m'
 
 
 def wait_for_deployment(deployment_id):

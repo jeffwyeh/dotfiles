@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # Colored less output
+# Requires pygmentize:
+#    brew install pygments
 if ! [ -x "$(command -v pygmentize)" ]; then
    echo 'Missing prerequisite: pygmentize'
    exit 1

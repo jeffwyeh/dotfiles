@@ -1,5 +1,13 @@
 #!/usr/bin/env expect -f
 
+# Connect to VPN with just one touch
+# This script can be used standalone or with the initall script
+# and will prompt you to touch your YubiKey to generate an OTP.
+# This script requires your Midway PIN to be stored in the Mac
+# keychain under midway_pin.
+#
+# security add-generic-password -a <user> -s <service> -w
+
 # InfoSec consultation: https://t.corp.amazon.com/P33840651 (NO AWS AppSec)
 # https://w.amazon.com/bin/view/Users/hqzhang/VPNOneTouch/
 # USAGE: $vpn-onetouch

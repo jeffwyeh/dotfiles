@@ -17,7 +17,7 @@ parser = argparse.ArgumentParser(description=
                 '\n'\
                 'This script takes a given Apollo environment name and stage\n'\
                 'and deploys the current workspace\'s versionset to a child\n'\
-                'environment with the user\'s alias.'\
+                'environment with the user\'s alias.\n'\
                 '\n'\
                 'Example usage:\n'\
                 '   apollo-deploy-ws ShipmentInjectionRequestManager/NA Beta',

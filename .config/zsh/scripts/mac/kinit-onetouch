@@ -1,8 +1,14 @@
 #!/usr/bin/env expect -f
 
+# Kerberos initialization with no user interaction
+# This script can be used standalone or with the initall script.
+# This script requires your Amazon password to be stored in the
+# Mac keychain under amzn_pwd.
+#
+# security add-generic-password -a <user> -s <service> -w
+
 # InfoSec consultation: https://t.corp.amazon.com/P33840651 (NO AWS AppSec)
-# https://w.amazon.com/bin/view/Users/hqzhang/VPNOneTouch/
-# USAGE: $mwinit-onetouch
+# USAGE: $kinit-onetouch
 
 set my_user "$env(USER)"
 set my_service amzn_pwd
