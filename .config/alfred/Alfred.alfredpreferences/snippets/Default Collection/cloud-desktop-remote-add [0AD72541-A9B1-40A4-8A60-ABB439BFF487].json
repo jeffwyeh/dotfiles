@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "cloud-desktop remote add --host yehyeh.aka.corp.amazon.com -r \/workplace -d `pwd`",
+    "uid" : "0AD72541-A9B1-40A4-8A60-ABB439BFF487",
+    "name" : "cloud-desktop-remote-add",
+    "keyword" : "cloud-desktop-remote-add"
+  }
+}
