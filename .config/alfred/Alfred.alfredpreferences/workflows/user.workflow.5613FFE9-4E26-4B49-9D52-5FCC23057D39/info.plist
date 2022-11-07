@@ -322,7 +322,7 @@
 				<key>keyword</key>
 				<string>dose</string>
 				<key>subtext</key>
-				<string>Turn on/off or on for h(ours)/m(inutes) or until hh:mm</string>
+				<string>Turn on/off, on for h(ours)/m(inutes), until hh:mm, or work for workday</string>
 				<key>text</key>
 				<string>Control Amphetamine</string>
 				<key>withspace</key>
@@ -478,7 +478,7 @@
 						<key>matchmode</key>
 						<integer>0</integer>
 						<key>matchstring</key>
-						<string>init</string>
+						<string>work</string>
 						<key>outputlabel</key>
 						<string>INIT</string>
 						<key>uid</key>
