@@ -74,7 +74,7 @@ yabai -m rule --add app='IntelliJ IDEA' title='Connect to Remote Workspace' mana
 yabai -m rule --add app='IntelliJ IDEA' title='^Welcome to' manage=off
 yabai -m rule --add app='IntelliJ IDEA' title='Licenses' manage=off
 yabai -m rule --add app='IntelliJ IDEA' title='Conflicts' manage=off
-yabai -m rule --add app='IntelliJ IDEA' title='^Merge Revisions for' manage=off
+yabai -m rule --add app='IntelliJ IDEA' title='Merge Revisions for' manage=off
 
 # float JetBrains toolbox
 yabai -m rule --add app='JetBrains Toolbox' manage=off
