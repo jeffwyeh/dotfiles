@@ -65,16 +65,9 @@ yabai -m rule --add title="Settings$" manage=off
 # float Cisco AnyConnect
 yabai -m rule --add app='^Cisco AnyConnect Secure Mobility Client$' manage=off
 
-# float IntelliJ prefs
-#yabai -m rule --add app='IntelliJ IDEA' title='^$' manage=off
-yabai -m rule --add app='IntelliJ IDEA' title='Project Structure' manage=off
-yabai -m rule --add app='IntelliJ IDEA' title='Preferences' manage=off
-yabai -m rule --add app='IntelliJ IDEA' title='Edit configuration' manage=off
-yabai -m rule --add app='IntelliJ IDEA' title='Connect to Remote Workspace' manage=off
-yabai -m rule --add app='IntelliJ IDEA' title='^Welcome to' manage=off
-yabai -m rule --add app='IntelliJ IDEA' title='Licenses' manage=off
-yabai -m rule --add app='IntelliJ IDEA' title='Conflicts' manage=off
-yabai -m rule --add app='IntelliJ IDEA' title='Merge Revisions for' manage=off
+# float only main IntelliJ window
+yabai -m rule --add app='IntelliJ IDEA' manage=off
+yabai -m rule --add app='IntelliJ IDEA' title='( – )' manage=on
 
 # float JetBrains toolbox
 yabai -m rule --add app='JetBrains Toolbox' manage=off
@@ -85,11 +78,7 @@ yabai -m rule --add app='JetBrains Gateway$' manage=off
 # float activity monitor
 yabai -m rule --add app='^Activity Monitor$' manage=off
 
-# float amazon chime
-yabai -m rule --add app='^Amazon Chime$' manage=off
-
 # float outlook meeting reminders
-#yabai -m rule --add app='^Microsoft Outlook$' title='Reminder' manage=off
 yabai -m rule --add app='^Microsoft Outlook$' title!='(^Calendar)|(yehyeh@amazon.com$)' manage=off
 
 # float finder
@@ -116,6 +105,9 @@ yabai -m rule --add title='Binding of Isaac' manage=off
 # float SIMS
 yabai -m rule --add app='The Sims 4' manage=off
 
+# full screen DCV
+yabai -m rule --add app='DCV Viewer' native-fullscreen=on
+
 # set up menu bar padding (24 is the default menu bar height)
 #SPACEBAR_HEIGHT=$(spacebar -m config height)
 SPACEBAR_HEIGHT=24
@@ -131,4 +123,4 @@ yabai -m signal --add event=window_destroyed action="sketchybar -m --trigger win
 #killall limelight &>/dev/null
 #limelight &>/dev/null &
 
-echo "yabai configuration loaded.."
+echo "yabai configuration loaded successfully!"
