@@ -99,6 +99,9 @@ yabai -m rule --add app='Calculator' manage=off
 # float dictionary
 yabai -m rule --add app='Dictionary' manage=off
 
+# float CIQ simulator
+yabai -m rule --add title='CIQ Simulator' manage=off
+
 # float Isaac
 yabai -m rule --add title='Binding of Isaac' manage=off
 
@@ -118,6 +121,13 @@ yabai -m signal --add event=window_focused action="sketchybar -m --trigger windo
 yabai -m signal --add event=window_title_changed action="sketchybar -m --trigger title_change &> /dev/null"
 yabai -m signal --add event=window_created action="sketchybar -m --trigger window_created &> /dev/null"
 yabai -m signal --add event=window_destroyed action="sketchybar -m --trigger window_destroyed &> /dev/null"
+
+# hack rule to not tile non-resizeable windows (preferences, etc.)
+yabai -m signal --add event=window_created action='yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"can-resize\" or .\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float'
+
+# hack rule to float created Arc windows (specifically for Little Arc)
+yabai -m signal --add event=window_created app="Arc" action='yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float'
+
 
 # Limelight addon (Kill it and start it each time Yabai starts)
 #killall limelight &>/dev/null
