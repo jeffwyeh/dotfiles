@@ -35,17 +35,19 @@ brew "neovim"
 brew "ninja-dev-sync"
 
 # Casks
-cask "wezterm"
 cask "iterm2"
-cask "kitty"
 cask "visual-studio-code"
-cask "alacritty"
 cask "font-fira-code"
 cask "font-fira-code-nerd-font"
 cask "font-fontawesome"
 cask "dcv-viewer"
 cask "balance-lock"
 cask "boop"
+
+# Unused terminals
+#cask "wezterm"
+#cask "kitty"
+#cask "alacritty"
 
 # Service auto restarts
 brew 'yabai', restart_service: :changed

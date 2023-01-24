@@ -4,6 +4,19 @@
 <dict>
 	<key>customSites</key>
 	<dict>
+		<key>3D61BFEA-4AD0-4C4D-999B-2D122DFF3D70</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>sic</string>
+			<key>text</key>
+			<string>Search ShipmentInjectionConsole for {query}</string>
+			<key>url</key>
+			<string>https://shipment-injection-na.integ.amazon.com/console/mfostat?criterionProperty=amazonOrderId&amp;criterionValue={query}&amp;criterionMerchantCustomerId=</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
 		<key>3EFC3866-6373-45A5-AE81-4458D69107F7</key>
 		<dict>
 			<key>enabled</key>
