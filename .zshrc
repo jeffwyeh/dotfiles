@@ -92,3 +92,6 @@ source $ZSH/oh-my-zsh.sh
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
+
+export AWS_EC2_METADATA_DISABLED=true
+
