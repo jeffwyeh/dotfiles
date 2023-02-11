@@ -1,7 +1,10 @@
 # Show the weather with an icon and temperature in F
+#
+# This requires the getCoreLocationData shortcut, available here:
+# https://www.icloud.com/shortcuts/1121da1aeece4d38aec5d38007944b6f
 
 API_KEY="64c19380366a4e4d92c212110211712" # insert api key here
-CITY="85248" # insert city here
+DEFAULT_POSTAL_CODE="85248" # insert city here
 
 # first comment is description, second is icon number
 weather_icons_day=(
@@ -106,8 +109,11 @@ weather_icons_night=(
     [1282]=  # Moderate or heavy snow with thunder/395
 )
 
-CITY=$(echo "$CITY" | curl -Gso /dev/null -w %{url_effective} --data-urlencode @- "" | cut -c 3- || true)
-data=$(curl -s "http://api.weatherapi.com/v1/current.json?key=$API_KEY&q=$CITY")
+postal_code=$(shortcuts run getCoreLocationData | jq -r '.postcode')
+if [[ ! "$postal_code" =~ ^[0-9]{5}$ ]]; then
+   postal_code=$DEFAULT_POSTAL_CODE
+fi
+data=$(curl -s "http://api.weatherapi.com/v1/current.json?key=$API_KEY&q=$postal_code")
 condition=$(echo $data | jq -r '.current.condition.code')
 temp=$(echo $data | jq -r '.current.temp_f')
 feelslike=$(echo $data | jq -r '.current.feelslike_f')
