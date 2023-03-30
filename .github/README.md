@@ -15,8 +15,8 @@ Below is a list of what this repository will set up:
 * [skhd](https://github.com/koekeishiya/skhd) - keyboard shortcuts for yabai
 * [sketchybar](https://github.com/FelixKratz/SketchyBar) - a menubar replacement
 * ~~[spacebar](https://github.com/cmacrae/spacebar) - a menubar replacement~~ Using sketchybar instead
-* [Hammerspoon](http://www.hammerspoon.org/) - required for stackline
-* [stackline](https://github.com/AdamWagner/stackline) - visual support for stacks in yabai
+* ~~[Hammerspoon](http://www.hammerspoon.org/) - required for stackline~~ Replaced by sketchybar indicator
+* ~~[stackline](https://github.com/AdamWagner/stackline) - visual support for stacks in yabai~~ Replaced by sketchybar indicator
 
 ### Yabai Dock integration
 

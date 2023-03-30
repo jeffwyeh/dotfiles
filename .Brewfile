@@ -43,6 +43,7 @@ cask "font-fontawesome"
 cask "dcv-viewer"
 cask "balance-lock"
 cask "boop"
+cask "bluesnooze"
 
 # Unused terminals
 #cask "wezterm"

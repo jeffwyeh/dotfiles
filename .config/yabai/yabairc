@@ -126,8 +126,10 @@ yabai -m signal --add event=window_destroyed action="sketchybar -m --trigger win
 yabai -m signal --add event=window_created action='yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"can-resize\" or .\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float'
 
 # hack rule to float created Arc windows (specifically for Little Arc)
-yabai -m signal --add event=window_created app="Arc" action='yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float'
+#yabai -m signal --add event=window_created app="Arc" action='yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float'
 
+# instead of the hack above, just don't float all Arc windows and manually tile them when opened
+yabai -m rule --add app='Arc' manage=off
 
 # Limelight addon (Kill it and start it each time Yabai starts)
 #killall limelight &>/dev/null
