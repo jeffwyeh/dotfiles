@@ -1,12 +1,12 @@
 # Set up exports for dev desk and Mac
 system_type=$(uname -s)
 if [ "$system_type" = "Darwin" ]; then
-   # mac OS
+   ## mac OS ##
 
    # Python
    export PATH=$HOME/Library/Python/3.8/bin:$PATH
 elif [ "$system_type" = "Linux" ]; then
-   # Linux
+   ## Linux ##
 
    # ApolloCommandLine
    export PATH=/apollo/env/ApolloCommandLine/bin:$PATH
@@ -18,8 +18,12 @@ elif [ "$system_type" = "Linux" ]; then
    export PATH=/apollo/env/SDETools/bin:$PATH
    # G2S2 tools
    export PATH=/apollo/env/G2S2CommandTools/bin:$PATH
+   # Yehyeh-scripts
+   export PATH=$HOME/Yehyeh-scripts/scripts/linux:$PATH
 fi
 
+# Add platform agnostic Yehyeh-scripts
+export PATH=$HOME/Yehyeh-scripts/scripts:$PATH
 # Add toolbox
 # Add git helper scripts
 # Add additional shell scripts

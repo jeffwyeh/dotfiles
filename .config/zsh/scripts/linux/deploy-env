@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# Re-deploy SIRM overrides to dev-desktop
-# This must be run in a SIRM workspace, and the workspace
-# must already be attached to an Apollo environment.
-echo "Deploying ShipmentInjectionRequestManager"
-brazil ws env update
-sudo /apollo/bin/runCommand -a Deactivate -e ShipmentInjectionRequestManager
-sudo /apollo/bin/runCommand -a Activate -e ShipmentInjectionRequestManager

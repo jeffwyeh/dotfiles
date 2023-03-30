@@ -26,8 +26,4 @@ if [ "$system_type" = "Darwin" ]; then
    }
 elif [ "$system_type" = "Linux" ]; then
    ## Running on AL2 ##
-   # Deploy an environment
-   export PATH=$HOME/.config/zsh/scripts/linux:$PATH
 fi
-
-export PATH=$HOME/.config/zsh/scripts:$PATH

@@ -1,4 +1,0 @@
-#!/bin/bash
-
-# mcurl - curl with midway authentication
-/usr/bin/curl "$@" -L --cookie ~/.midway/cookie --cookie-jar ~/.midway/cookie
