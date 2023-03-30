@@ -1,10 +1,10 @@
 [user]
-	name = Jeff Yeh
-	email = yehyeh@amazon.com
+  name = Jeff Yeh
+  email = yehyeh@amazon.com
 [core]
-	excludesfile = ~/.config/git/excludes
+  excludesfile = ~/.config/git/excludes
 [include]
-	path = ~/.config/git/aliases
+  path = ~/.config/git/aliases
 [pull]
 	ff = only
   rebase = true
