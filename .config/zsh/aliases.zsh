@@ -37,19 +37,6 @@ alias bbb='brc --allPackages brazil-build'
 alias bbra='bbr apollo-pkg'
 alias sam='brazil-build-tool-exec sam'
 
-# alias for running brazil commands on all packages
-function bap() {
-   if [ $# -lt 1 ]; then
-      echo 'No command provided.'
-      exit 1
-   fi
-   local cmd
-   local div=`printf -- '-%.0s' {1..60}`
-   export div
-   printf -v cmd 'echo "\n$div"; echo "${name}"; echo "$div"; (%s)' "$*"
-   brc -all --continue $cmd
-}
-
 # Override ll to be more useful
 alias ll='ls -lAFh'
 
