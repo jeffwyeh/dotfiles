@@ -27,3 +27,35 @@ if [ "$system_type" = "Darwin" ]; then
 elif [ "$system_type" = "Linux" ]; then
    ## Running on AL2 ##
 fi
+
+# alias for running brazil commands on all packages
+function bap() {
+   if [ $# -lt 1 ]; then
+      echo 'No command provided.'
+      exit 1
+   fi
+   local cmd
+   local div=`printf -- '-%.0s' {1..60}`
+   export div
+   printf -v cmd 'echo "\n$div"; echo "${name}"; echo "$div"; (%s)' "$*"
+   brc -all --continue $cmd
+}
+
+# print calendars vertically
+function vcal() {
+   if [ "$system_type" = "Darwin" ]; then
+      LAST_MONTH=`date -v-1m '+%-m'`
+      LAST_YEAR=`date -v-1m '+%Y'`
+      NEXT_MONTH=`date -v+1m '+%-m'`
+      NEXT_YEAR=`date -v+1m '+%Y'`
+   elif [ "$system_type" = "Linux" ]; then
+      LAST_MONTH=`date -d '-1 month' '+%-m'`
+      LAST_YEAR=`date -d '-1 month' '+%Y'`
+      NEXT_MONTH=`date -d '+1 month' '+%-m'`
+      NEXT_YEAR=`date -d '+1 month' '+%Y'`
+   fi
+
+   cal $LAST_MONTH $LAST_YEAR
+   cal
+   cal $NEXT_MONTH $NEXT_YEAR
+}
