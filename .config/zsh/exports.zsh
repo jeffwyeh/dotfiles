@@ -15,11 +15,13 @@ elif [ "$system_type" = "Linux" ]; then
    # local bin
    export PATH=$HOME/.local/bin:$PATH
    # SDETools
-   export PATH=/apollo/env/SDETools/bin:$PATH
+   export PATH=$PATH:/apollo/env/SDETools/bin
    # G2S2 tools
-   export PATH=/apollo/env/G2S2CommandTools/bin:$PATH
+   export PATH=$PATH:/apollo/env/G2S2CommandTools/bin
    # Yehyeh-scripts
    export PATH=$HOME/Yehyeh-scripts/scripts/linux:$PATH
+   # OdinTools
+   export PATH=$PATH:/apollo/env/OdinTools/bin
 fi
 
 # Add platform agnostic Yehyeh-scripts
