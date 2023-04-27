@@ -20,6 +20,12 @@ elif [ "$system_type" = "Linux" ]; then
    alias allinit='kinit; mwinit -o -s'
    # Remote Command to skip bastion
    alias rcenv='remote-command --override-ssh "ssh -2 -q -o StrictHostKeyChecking=no -o ProxyCommand=none -t" --environment'
+   # G2S2
+   alias g2s2sbx="/apollo/env/G2S2CommandTools/bin/g2s2 -u https://g2s2-author.integ.amazon.com"
+   alias g2s2="/apollo/env/G2S2CommandTools/bin/g2s2 -u https://g2s2-author.amazon.com"
+   alias g2s2ro="/apollo/env/G2S2CommandTools/bin/g2s2 -u https://g2s2-query-pre-prod.amazon.com"
+   # ion formatter
+   alias ionpp="/apollo/env/G2S2CommandTools/bin/ion-formatter --format pretty"
 fi
 
 # brazil aliases
@@ -42,3 +48,6 @@ alias ll='ls -lAFh'
 
 # Colored cat output
 alias ccat='pygmentize -g'
+
+# Search history
+alias hh='history | grep'
