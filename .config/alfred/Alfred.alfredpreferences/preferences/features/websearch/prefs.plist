@@ -30,6 +30,19 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
+		<key>4472F67D-25CF-4CE3-ACC6-B3C0DFFD92CC</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>aw</string>
+			<key>text</key>
+			<string>Search Amazon Wiki for '{query}'</string>
+			<key>url</key>
+			<string>https://w.amazon.com/bin/view/Main/Search?text={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
 		<key>B811AD29-A107-41C0-BB91-FDBB5392AEF4</key>
 		<dict>
 			<key>enabled</key>
