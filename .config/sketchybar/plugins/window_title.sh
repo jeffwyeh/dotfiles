@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
 WINDOW_TITLE=$(yabai -m query --windows --window | jq -r '.title')
  
@@ -20,4 +20,3 @@ sketchybar --set system.label label="$WINDOW_TITLE"
 #  "display_change") sketchybar --set system.label associated_display=$INFO
 #  ;;
 #esac
-

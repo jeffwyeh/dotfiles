@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Show the weather with an icon and temperature in F
 #
 # This requires the getCoreLocationData shortcut, available here:
@@ -122,6 +124,6 @@ is_day=$(echo $data | jq -r '.current.is_day')
 
 [ "$is_day" = "1" ] && icon=${weather_icons_day[$condition]} || icon=${weather_icons_night[$condition]}
 
-sketchybar -m --set weather \
+sketchybar --set weather \
                     icon="$icon" \
                     label="${temp}°F"

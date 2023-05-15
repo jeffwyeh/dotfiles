@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Battery status
 # This shows a rounded rectangle with the following information:
 # * AC adapter status
@@ -39,9 +41,12 @@ else
     COLOR=$RED
 fi
 
-sketchybar -m --set battery \
-                    background.color=$COLOR \
-                    icon=$ICON \
-                    label=$(printf "${BATT_PERCENT}%%") \
-              --set amphetamine_battery_transition background.color=$COLOR \
-              --set battery_transition icon.color=$COLOR
+battery=(
+    background.color=$COLOR
+    icon=$ICON
+    label=$(printf "${BATT_PERCENT}%%")
+)
+
+sketchybar --set battery "${battery[@]}" \
+           --set amphetamine_battery_transition background.color=$COLOR \
+           --set battery_transition icon.color=$COLOR

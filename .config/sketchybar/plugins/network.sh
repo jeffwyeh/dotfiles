@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Show the network usage as a stacked item
 
 UPDOWN=$(ifstat -i "en0" -b 0.1 1 | tail -n1)
@@ -18,5 +20,5 @@ else
   UP_FORMAT=$(echo $UP | awk '{ printf "%03.0f kbps", $1}')
 fi
 
-sketchybar -m --set network_down label="$DOWN_FORMAT" icon.highlight=$(if [ "$DOWN" -gt "0" ]; then echo "on"; else echo "off"; fi) \
-                    --set network_up label="$UP_FORMAT" icon.highlight=$(if [ "$UP" -gt "0" ]; then echo "on"; else echo "off"; fi)
+sketchybar --set network_down label="$DOWN_FORMAT" icon.highlight=$(if [ "$DOWN" -gt "0" ]; then echo "on"; else echo "off"; fi) \
+           --set network_up label="$UP_FORMAT" icon.highlight=$(if [ "$UP" -gt "0" ]; then echo "on"; else echo "off"; fi)

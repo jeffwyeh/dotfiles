@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Show an icon for the float status of the selected window
 
 case "$(yabai -m query --windows --window | jq '."is-floating"')" in
