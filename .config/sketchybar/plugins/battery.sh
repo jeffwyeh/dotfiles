@@ -48,5 +48,6 @@ battery=(
 )
 
 sketchybar --set battery "${battery[@]}" \
+           --animate sin 50 \
            --set amphetamine_battery_transition background.color=$COLOR \
            --set battery_transition icon.color=$COLOR

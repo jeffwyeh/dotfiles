@@ -9,6 +9,7 @@ else
    COLOR=$BLUE
 fi
 
-sketchybar --set amphetamine background.color=$COLOR \
+sketchybar --animate sin 50 \
+           --set amphetamine background.color=$COLOR \
            --set amphetamine_transition background.color=$COLOR \
            --set amphetamine_battery_transition icon.color=$COLOR

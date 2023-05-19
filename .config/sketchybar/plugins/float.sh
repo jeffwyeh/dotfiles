@@ -7,16 +7,16 @@ case "$(yabai -m query --windows --window | jq '."is-floating"')" in
       case "$(yabai -m query --windows --window | jq '."has-fullscreen-zoom"')" in
          false)
             #sketchybar -m --set yabai_float icon="T"
-            sketchybar -m --set yabai_float icon=""
+            sketchybar --set yabai_float icon=""
             ;;
          true)
             #sketchybar -m --set yabai_float icon="M"
-            sketchybar -m --set yabai_float icon=""
+            sketchybar --set yabai_float icon=""
             ;;
       esac
       ;;
    true)
       #sketchybar -m --set yabai_float icon="F"
-      sketchybar -m --set yabai_float icon=""
+      sketchybar --set yabai_float icon=""
       ;;
 esac

@@ -19,8 +19,8 @@ else
    # Use a larger font for the unicode dots
    if [[ $LAST -gt 3 ]]; then
      sketchybar --set stack label=$(printf "[%s/%s]" "$CURRENT" "$LAST") \
-                   --set stack label.font="$HELVETICA" \
-                   --set stack drawing=on
+               --set stack label.font="$HELVETICA" \
+               --set stack drawing=on
    else
       # Create Stack Indicator
       declare -a dots=()
@@ -31,7 +31,7 @@ else
 
       # Display Indicator
       sketchybar --set stack label="$(echo $dots)" \
-                    --set stack label.font="$FONT_AWESOME_REG" \
-                    --set stack drawing=on
+                 --set stack label.font="$FONT_AWESOME_REG" \
+                 --set stack drawing=on
    fi
 fi
