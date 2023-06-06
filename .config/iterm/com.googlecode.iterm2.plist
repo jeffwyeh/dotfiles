@@ -1212,7 +1212,7 @@
 					<key>partial</key>
 					<true/>
 					<key>regex</key>
-					<string>S0[123]-[0-9]{7}-[0-9]{7}</string>
+					<string>S[01][123]-[0-9]{7}-[0-9]{7}</string>
 				</dict>
 				<dict>
 					<key>action</key>
