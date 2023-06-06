@@ -28,17 +28,33 @@ elif [ "$system_type" = "Linux" ]; then
    ## Running on AL2 ##
 fi
 
+function remote-sirm-logs() {
+   if [ "$system_type" = "Darwin" ]; then
+      echo 'remote-command not supported on Mac.'
+   elif [ $# -lt 3 ]; then
+      echo 'Search all SIRM host logs for specified regex. The regex should be enclosed in single quotes.'
+      echo ''
+      echo 'Usage:'
+      echo '  remote-sirm-logs <region> <stage> <regex>'
+   else
+      echo "Searching SIRM ${1} ${2} for ${3}"
+      remote-command --environment ShipmentInjectionRequestManager/${1}/${2} \
+         'echo SERVER; cd /apollo/env/ShipmentInjectionRequestManager/var/output/logs; grep -E "'${3}'" ShipmentInjection*' \
+         --text-output
+   fi
+}
+
 # alias for running brazil commands on all packages
 function bap() {
    if [ $# -lt 1 ]; then
       echo 'No command provided.'
-      exit 1
+   else
+      local cmd
+      local div=`printf -- '-%.0s' {1..60}`
+      export div
+      printf -v cmd 'echo "\n$div"; echo "${name}"; echo "$div"; (%s)' "$*"
+      brc -all --continue $cmd
    fi
-   local cmd
-   local div=`printf -- '-%.0s' {1..60}`
-   export div
-   printf -v cmd 'echo "\n$div"; echo "${name}"; echo "$div"; (%s)' "$*"
-   brc -all --continue $cmd
 }
 
 # print calendars vertically
