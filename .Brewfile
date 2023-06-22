@@ -46,6 +46,7 @@ cask "dcv-viewer"               # Dev desktop remote viewer
 cask "balance-lock"             # Lock left-right audio balance (since macOS is dumb)
 cask "boop"                     # Program to quickly format text blocks (useful for JSON)
 cask "bluesnooze"               # Turn off bluetooth when macOS sleeps (since macOS is dumb, again)
+cask "warp"                     # Warp "AI" terminal
 
 ############
 ## Unused ##
