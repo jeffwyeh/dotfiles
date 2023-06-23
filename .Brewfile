@@ -20,6 +20,7 @@ brew "grep"      # Better grep
 brew "mdcat"     # Markdown renderer for command line
 brew "vim"       # vim - more up to date (required for YouCompleteMe)
 brew "go"        # Required for YouCompleteMe
+brew "starship"  # Custom prompt
 
 #######################
 ## Mac customization ##
