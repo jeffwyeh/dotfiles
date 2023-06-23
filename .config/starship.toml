@@ -20,7 +20,8 @@ read_only = " 󰌾"
 symbol = " "
 
 [hostname]
-format = "[$ssh_symbol$hostname] (%style)"
+format = "[$ssh_symbol$hostname ]($style)"
+style="bold dimmed green"
 ssh_symbol = " "
 
 [os]
