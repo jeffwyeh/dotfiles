@@ -50,6 +50,7 @@ cask "bluesnooze"               # Turn off bluetooth when macOS sleeps (since ma
 cask "warp"                     # Warp "AI" terminal
 cask "unison"                   # Unison file synchronization
 cask "hyperkey"                 # Convert caps lock into hyper key
+cask "scroll-reverser"          # Fix scrolling direction for external mice
 
 ############
 ## Unused ##
