@@ -38,19 +38,18 @@ brew "ninja-dev-sync" # Sync to dev desktop
 ###########
 ## Casks ##
 ###########
-cask "iterm2"                   # Terminal
-cask "visual-studio-code"       # VS Code
-cask "font-fira-code"           # Coding font
-cask "font-fira-code-nerd-font" # Coding font with additional glyphs
-cask "font-fontawesome"         # Glyph font
-cask "dcv-viewer"               # Dev desktop remote viewer
-cask "balance-lock"             # Lock left-right audio balance (since macOS is dumb)
-cask "boop"                     # Program to quickly format text blocks (useful for JSON)
-cask "bluesnooze"               # Turn off bluetooth when macOS sleeps (since macOS is dumb, again)
-cask "warp"                     # Warp "AI" terminal
-cask "unison"                   # Unison file synchronization
-cask "hyperkey"                 # Convert caps lock into hyper key
-cask "scroll-reverser"          # Fix scrolling direction for external mice
+cask "visual-studio-code"        # VS Code
+cask "font-fira-code"            # Coding font
+cask "font-fira-code-nerd-font"  # Coding font with additional glyphs
+cask "font-fontawesome"          # Glyph font
+cask "dcv-viewer"                # Dev desktop remote viewer
+cask "balance-lock"              # Lock left-right audio balance (since macOS is dumb)
+cask "boop"                      # Program to quickly format text blocks (useful for JSON)
+cask "bluesnooze"                # Turn off bluetooth when macOS sleeps (since macOS is dumb, again)
+cask "warp"                      # Warp "AI" terminal
+cask "unison"                    # Unison file synchronization
+cask "hyperkey"                  # Convert caps lock into hyper key
+cask "mouse-fix"                 # Additional mouse functionality
 
 ############
 ## Unused ##
@@ -60,6 +59,8 @@ cask "scroll-reverser"          # Fix scrolling direction for external mice
 #cask "wezterm"                   # Another terminal
 #cask "kitty"                     # Another terminal
 #cask "alacritty"                 # Another terminal
+#cask "iterm2"                    # Terminal
+#cask "scroll-reverser"           # Fix scrolling direction for external mice
 
 ###########################
 ## Service auto restarts ##
