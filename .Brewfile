@@ -48,6 +48,8 @@ cask "balance-lock"             # Lock left-right audio balance (since macOS is 
 cask "boop"                     # Program to quickly format text blocks (useful for JSON)
 cask "bluesnooze"               # Turn off bluetooth when macOS sleeps (since macOS is dumb, again)
 cask "warp"                     # Warp "AI" terminal
+cask "unison"                   # Unison file synchronization
+cask "hyperkey"                 # Convert caps lock into hyper key
 
 ############
 ## Unused ##
