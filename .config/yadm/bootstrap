@@ -3,24 +3,54 @@
 system_type=$(uname -s)
 
 if [ "$system_type" = "Darwin" ]; then
-  # install homebrew if it's missing
-  if ! command -v brew >/dev/null 2>&1; then
-    echo "Installing homebrew"
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  fi
+   echo "== Mac =="
+   echo ""
+   # install homebrew if it's missing
+   echo "Install homebrew:"
+   if ! command -v brew >/dev/null 2>&1; then
+      echo "-> Installing..."
+      /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+      echo "-> Done."
+      echo ""
+   else
+      echo "-> Already installed."
+      echo ""
+   fi
 
-  if [ -f "$HOME/.Brewfile" ]; then
-    echo "Updating homebrew bundle"
-    brew bundle --global
-  fi
+   echo "Update homebrew bundle:"
+   if [ -f "$HOME/.Brewfile" ]; then
+      echo "-> Updating..."
+      brew bundle --global
+      echo "-> Done."
+      echo ""
+   fi
 elif [ "$system_type" = "Linux" ]; then
-   # Install starship
-   echo "Installing Starship"
-   curl -sS https://starship.rs/install.sh | sh
+   echo "== Linux =="
+   echo ""
+   # Install starship if it's missing
+   echo "Install starship:"
+   if ! which starship >/dev/null 2>&1; then
+      echo "-> Installing..."
+      curl -sS https://starship.rs/install.sh | sh
+      echo "-> Done."
+      echo ""
+   else
+      echo "-> Already installed."
+      echo ""
+   fi
 fi
 
-echo "Cloning Yehyeh-scripts"
-if ! git clone ssh://git.amazon.com/pkg/Yehyeh-scripts ~/Yehyeh-scripts 2>/dev/null && [ -d ~/Yehyeh-scripts ] ; then
-   echo "Yehyeh-scripts already exists in home directory!"
+echo "== All OSes =="
+echo ""
+
+echo "Cloning Yehyeh-scripts:"
+if [ -d ~/Yehyeh-scripts ] ; then
+   echo "-> Already exists."
+   echo ""
+else
+   echo "-> Cloning..."
+   git clone ssh://git.amazon.com/pkg/Yehyeh-scripts ~/Yehyeh-scripts
+   echo "-> Done."
+   echo ""
 fi
 
