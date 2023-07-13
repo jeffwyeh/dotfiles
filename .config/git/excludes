@@ -6,3 +6,7 @@ annotation-generated-src
 /var/
 **/.DS_Store
 *.orig
+*.classpath
+*.factorypath
+*.project
+*.prefs
