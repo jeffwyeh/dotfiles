@@ -13,9 +13,14 @@ if [ "$system_type" = "Darwin" ]; then
     echo "Updating homebrew bundle"
     brew bundle --global
   fi
+elif [ "$system_type" = "Linux" ]; then
+   # Install starship
+   echo "Installing Starship"
+   curl -sS https://starship.rs/install.sh | sh
 fi
 
+echo "Cloning Yehyeh-scripts"
 if ! git clone ssh://git.amazon.com/pkg/Yehyeh-scripts ~/Yehyeh-scripts 2>/dev/null && [ -d ~/Yehyeh-scripts ] ; then
-   echo "Yehyeh-scripts already exists in home directory."
+   echo "Yehyeh-scripts already exists in home directory!"
 fi
 
