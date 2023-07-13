@@ -41,6 +41,12 @@ https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#upda
 
 ## Bootstrapping a new system
 
+### Generate and add an SSH key to GitHub
+
+    ssh-keygen
+
+Copy the public key (eg.g `~/.ssh/id_rsa.pub`) and add it to GitHub.com.
+
 ### Install Homebrew (Mac only)
 
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -53,9 +59,11 @@ https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#upda
     # If not on a Mac, the simplest way is to download the script directly
     curl -fLo /usr/local/bin/yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod a+x /usr/local/bin/yadm
 
+The manual installation may require `sudo` permissions.
+
 ### Clone the repository with yadm
 
-    yadm clone https://github.com/jeffwyeh/dotfiles.git
+    yadm clone --recurse-submodules https://github.com/jeffwyeh/dotfiles.git
 
 ### Bootstrap using yadm
 
