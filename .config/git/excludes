@@ -10,3 +10,4 @@ annotation-generated-src
 *.factorypath
 *.project
 *.prefs
+*.vscode/*

@@ -101,3 +101,5 @@ eval "$(starship init zsh)"
 
 export AWS_EC2_METADATA_DISABLED=true
 
+
+export PATH=$HOME/.toolbox/bin:$PATH
