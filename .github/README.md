@@ -63,7 +63,7 @@ The manual installation may require `sudo` permissions.
 
 ### Clone the repository with yadm
 
-    yadm clone --recurse-submodules https://github.com/jeffwyeh/dotfiles.git
+    yadm clone --recurse-submodules git@github.com:jeffwyeh/dotfiles.git
 
 ### Bootstrap using yadm
 
@@ -97,6 +97,10 @@ here for completeness.
     wget https://raw.githubusercontent.com/takumakei/osx-dictionary/master/osx-dictionary.rb
     brew install --HEAD -s osx-dictionary.rb
     rm osx-dictionary.rb
+
+### Install pygments on Linux
+
+    sudo yum install python-pygments
 
 ## What's missing?
 
