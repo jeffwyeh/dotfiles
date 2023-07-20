@@ -26,6 +26,9 @@ if [ "$system_type" = "Darwin" ]; then
    }
 elif [ "$system_type" = "Linux" ]; then
    ## Running on AL2 ##
+   # RDE CLI Completion
+   fpath=(~/.config/zsh/completion $fpath)
+   autoload -Uz compinit && compinit -i
 fi
 
 function remote-sirm-logs() {
