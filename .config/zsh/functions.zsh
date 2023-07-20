@@ -47,6 +47,9 @@ function remote-sirm-logs() {
    fi
 }
 
+# Enable autocompletion for mechanic.
+[ -f "$HOME/.local/share/mechanic/complete.zsh" ] && source "$HOME/.local/share/mechanic/complete.zsh"
+
 # alias for running brazil commands on all packages
 function bap() {
    if [ $# -lt 1 ]; then
