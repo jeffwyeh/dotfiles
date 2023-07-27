@@ -11,3 +11,4 @@ annotation-generated-src
 *.project
 *.prefs
 *.vscode/*
+*.diff
