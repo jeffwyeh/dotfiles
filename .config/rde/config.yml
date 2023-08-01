@@ -9,4 +9,4 @@ properties:
     completionscriptpaths:
       zsh: ~/.config/zsh/completion/_rde
   midway:
-    cookiehash: 736d6e04d291196505f52217425fa6f7b3e72aed
+    cookiehash: 122ee0157ad3faf1b64e75264684a0a6b59f37a5
