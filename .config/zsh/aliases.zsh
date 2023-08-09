@@ -38,8 +38,9 @@ alias bwsuse='bws use --gitMode -p'
 alias bwscreate='bws create -n'
 alias brc=brazil-recursive-cmd
 alias bbr='brc brazil-build'
-alias bball='brc --allPackages'
+elias bball='brc --allPackages'
 alias bbb='brc --allPackages brazil-build'
+alias bbbr='brc --reverse --allPackages brazil-build'
 alias bbra='bbr apollo-pkg'
 alias sam='brazil-build-tool-exec sam'
 
