@@ -105,9 +105,6 @@ yabai -m rule --add title='CIQ Simulator' manage=off
 # float Isaac
 yabai -m rule --add title='Binding of Isaac' manage=off
 
-# float SIMS
-yabai -m rule --add app='The Sims 4' manage=off
-
 # full screen DCV
 yabai -m rule --add app='DCV Viewer' native-fullscreen=on
 
