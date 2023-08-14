@@ -1,14 +1,25 @@
+# IDEs
 *.iml
 *.idea/*
-build
-annotation-generated-src
-*.attach_pid*
-/var/
-**/.DS_Store
-*.orig
-*.classpath
+*.vscode/*
 *.factorypath
 *.project
-*.prefs
-*.vscode/*
+
+# Build folders
+build
+annotation-generated-src
+dist/
+node_modules/
+*.classpath
+
+# Mac
+**/.DS_Store
+
+# Git
+*.orig
 *.diff
+
+# Misc
+*.prefs
+*.attach_pid*
+/var

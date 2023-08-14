@@ -88,7 +88,7 @@ yabai -m rule --add app='^Finder$' manage=off
 yabai -m rule --add app='^Friendly Streaming$' title='Untitled' manage=off
 
 # float connections
-yabai -m rule --add title='^Amazon Connections$' manage=off
+yabai -m rule --add title='^Connections$' manage=off
 
 # float vysor
 yabai -m rule --add app='Vysor' manage=off
