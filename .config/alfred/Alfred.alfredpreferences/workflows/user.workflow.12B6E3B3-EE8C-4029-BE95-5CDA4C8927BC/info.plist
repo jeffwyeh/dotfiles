@@ -40,9 +40,9 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>python3 /Users/yehyeh/dcv/dcv-cdd.py connect yehyeh.aka.corp.amazon.com</string>
+				<string>python3 /Users/yehyeh/dcv/dcv-cdd.py connect {query} --wssh</string>
 				<key>scriptargtype</key>
-				<integer>1</integer>
+				<integer>0</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>type</key>
@@ -59,7 +59,7 @@
 			<key>config</key>
 			<dict>
 				<key>argumenttype</key>
-				<integer>2</integer>
+				<integer>0</integer>
 				<key>keyword</key>
 				<string>dcvview</string>
 				<key>subtext</key>
@@ -67,7 +67,7 @@
 				<key>text</key>
 				<string>DCV</string>
 				<key>withspace</key>
-				<false/>
+				<true/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.keyword</string>
@@ -84,18 +84,20 @@
 		<key>72C95775-97A3-4059-B5F0-E26505EC2246</key>
 		<dict>
 			<key>xpos</key>
-			<integer>355</integer>
+			<real>355</real>
 			<key>ypos</key>
-			<integer>285</integer>
+			<real>285</real>
 		</dict>
 		<key>908E63F9-79EE-4606-8D89-9E98C6B4832B</key>
 		<dict>
 			<key>xpos</key>
-			<integer>135</integer>
+			<real>135</real>
 			<key>ypos</key>
-			<integer>285</integer>
+			<real>285</real>
 		</dict>
 	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
 	<key>webaddress</key>
 	<string></string>
 </dict>

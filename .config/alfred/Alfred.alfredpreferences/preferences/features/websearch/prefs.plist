@@ -4,6 +4,17 @@
 <dict>
 	<key>customSites</key>
 	<dict>
+		<key>185753CE-02D0-4A4F-95CC-A8F01A389062</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>conduit</string>
+			<key>text</key>
+			<string>Search Conduit for AWS Account</string>
+			<key>url</key>
+			<string>https://conduit.security.a2z.com/accounts/aws/{query}/attributes</string>
+		</dict>
 		<key>3D61BFEA-4AD0-4C4D-999B-2D122DFF3D70</key>
 		<dict>
 			<key>enabled</key>
@@ -26,9 +37,7 @@
 			<key>text</key>
 			<string>Search Sage for '{query}'</string>
 			<key>url</key>
-			<string>https://refresh.sage.amazon.dev/search?q={query}&amp;sort=Relevance</string>
-			<key>utf8</key>
-			<true/>
+			<string>https://sage.amazon.dev/search?q={query}&amp;sort=Relevance</string>
 		</dict>
 		<key>4472F67D-25CF-4CE3-ACC6-B3C0DFFD92CC</key>
 		<dict>
@@ -53,19 +62,6 @@
 			<string>Search Amazon Internal Search for '{query}'</string>
 			<key>url</key>
 			<string>https://is.amazon.com/search/?q={query}</string>
-			<key>utf8</key>
-			<true/>
-		</dict>
-		<key>FB1DF7C6-8830-430A-BCA8-95440CFB6405</key>
-		<dict>
-			<key>enabled</key>
-			<false/>
-			<key>keyword</key>
-			<string>code</string>
-			<key>text</key>
-			<string>Search Amazon Code Browser for '{query}'</string>
-			<key>url</key>
-			<string>https://code.amazon.com/search?term={query}</string>
 			<key>utf8</key>
 			<true/>
 		</dict>

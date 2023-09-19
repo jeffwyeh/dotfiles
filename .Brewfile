@@ -50,6 +50,7 @@ cask "warp"                      # Warp "AI" terminal
 cask "unison"                    # Unison file synchronization
 cask "hyperkey"                  # Convert caps lock into hyper key
 cask "mouse-fix"                 # Additional mouse functionality
+cask "MonitorControl"            # Adjust external monitor settings
 
 ############
 ## Unused ##
