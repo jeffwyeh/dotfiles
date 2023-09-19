@@ -24,6 +24,10 @@ elif [ "$system_type" = "Linux" ]; then
    export PATH=$PATH:/apollo/env/OdinTools/bin
    # Java Home for TAO
    export JAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto.x86_64
+   # NodeJS
+   export PATH=$PATH:/apollo/env/NodeJS/bin
+   # Node Modules
+   export PATH=$PATH:/home/yehyeh/node_modules/.bin
 fi
 
 # Add platform agnostic Yehyeh-scripts

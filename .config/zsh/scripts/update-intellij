@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# This script comes from https://w.amazon.com/bin/view/Users/wtkmatt/IntelliJUpdateScript/
+
+system_type=$(uname -s)
+if [ "$system_type" = "Darwin" ]; then
+   echo "This script only runs on AL2. Exiting..."
+   exit 1
+fi
+
+echo "Exporting variable to specify Ultimate Edition..."
+export INTELLIJ_EDITION_CODE=IIU
+
+echo "Setting up..." \
+&& sudo mkdir -p /local/Downloads \
+&& sudo mkdir -p /local/Desktop/ \
+&& download_url="https://download.jetbrains.com/product?code=${INTELLIJ_EDITION_CODE:-IIC}&latest&distribution=linux" \
+&& echo "Downloading IntelliJ from $download_url (this may take a minute)..." \
+&& sudo curl -L "$download_url" -o /local/Downloads/intellij-latest.tar.gz \
+&& echo "Removing old installations (this may take a few seconds)..." \
+&& sudo rm -fr /opt/JetBrains/ \
+&& sudo rm -f /usr/share/applications/IntelliJ.desktop \
+&& sudo rm -f /local/Desktop/IntelliJ.desktop \
+&& echo "Extracting IntelliJ to application folder (this may take a few seconds)..." \
+&& sudo mkdir -p /opt/JetBrains \
+&& sudo tar xfz /local/Downloads/intellij-latest.tar.gz -C /opt/JetBrains/ \
+&& sudo rm -f /local/Downloads/intellij-latest.tar.gz \
+&& intellij_version=$(ls /opt/JetBrains/ | grep idea) \
+&& echo "IntelliJ $intellij_version installed. Creating application shortcut..." \
+&& echo -e "[Desktop Entry]\nEncoding=UTF-8\nVersion=1.0\nType=Application\nTerminal=false\nExec=/opt/JetBrains/$intellij_version/bin/idea.sh\nName=IntelliJ IDEA\nIcon=/opt/JetBrains/$intellij_version/bin/idea.svg\nCategories=Development;IDE;" \
+  | sudo tee /usr/share/applications/IntelliJ.desktop > /dev/null \
+&& echo "Creating desktop shortcuts..." \
+&& sudo ln -fs /usr/share/applications/IntelliJ.desktop ~/Desktop/IntelliJ.desktop \
+&& echo "Done.";
