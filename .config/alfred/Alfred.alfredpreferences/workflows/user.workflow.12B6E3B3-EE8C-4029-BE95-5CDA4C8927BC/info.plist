@@ -40,7 +40,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>python3 /Users/yehyeh/dcv/dcv-cdd.py connect {query} --wssh</string>
+				<string>python3 /Users/yehyeh/dcv/dcv-cdd.py connect {query}.aka.corp.amazon.com --wssh</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>

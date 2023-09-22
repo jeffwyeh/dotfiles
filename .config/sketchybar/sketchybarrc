@@ -63,8 +63,8 @@ source "$ITEMS/media.sh"
 #source "$ITEMS/monitors.sh"
 
 # Center
-#source "$ITEMS/title.sh"
-#source "$ITEMS/stack.sh"
+source "$ITEMS/title.sh"
+source "$ITEMS/stack.sh"
 
 # Finish set up
 sketchybar --update
