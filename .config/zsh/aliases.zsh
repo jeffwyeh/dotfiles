@@ -26,6 +26,9 @@ elif [ "$system_type" = "Linux" ]; then
    alias g2s2ro="/apollo/env/G2S2CommandTools/bin/g2s2 -u https://g2s2-query-pre-prod.amazon.com"
    # ion formatter
    alias ionpp="/apollo/env/G2S2CommandTools/bin/ion-formatter --format pretty"
+   # Java switching
+   alias print-java-version='printf "\n☕️ Java\n\n" && which java && java -version'
+   alias switch-java-version='sudo alternatives --config java && source ~/.zshrc'
 fi
 
 # brazil aliases
@@ -52,3 +55,4 @@ alias ccat='pygmentize -g'
 
 # Search history
 alias hh='history | grep'
+

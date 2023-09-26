@@ -106,7 +106,7 @@ yabai -m rule --add title='CIQ Simulator' manage=off
 yabai -m rule --add title='Binding of Isaac' manage=off
 
 # full screen DCV
-yabai -m rule --add app='DCV Viewer' native-fullscreen=on
+#yabai -m rule --add app='DCV Viewer' native-fullscreen=on
 
 # set up menu bar padding (24 is the default menu bar height)
 #SPACEBAR_HEIGHT=$(spacebar -m config height)
