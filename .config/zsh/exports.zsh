@@ -8,12 +8,12 @@ if [ "$system_type" = "Darwin" ]; then
 elif [ "$system_type" = "Linux" ]; then
    ## Linux ##
 
-   # ApolloCommandLine
-   export PATH=/apollo/env/ApolloCommandLine/bin:$PATH
-   # envImprovement
+   # envImprovement - PUT IT FIRST
    export PATH=/apollo/env/envImprovement/bin:$PATH
+   # ApolloCommandLine
+   export PATH=$PATH:/apollo/env/ApolloCommandLine/bin
    # local bin
-   export PATH=$HOME/.local/bin:$PATH
+   export PATH=$PATH:$HOME/.local/bin
    # SDETools
    export PATH=$PATH:/apollo/env/SDETools/bin
    # G2S2 tools
@@ -22,17 +22,17 @@ elif [ "$system_type" = "Linux" ]; then
    export PATH=$HOME/Yehyeh-scripts/scripts/linux:$PATH
    # OdinTools
    export PATH=$PATH:/apollo/env/OdinTools/bin
-   # Java Home for TAO
-   export JAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto.x86_64
    # NodeJS
    export PATH=$PATH:/apollo/env/NodeJS/bin
    # Node Modules
    export PATH=$PATH:/home/yehyeh/node_modules/.bin
+   # Java Home for TAO
+   export JAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto
 fi
 
 # Add platform agnostic Yehyeh-scripts
-export PATH=$HOME/Yehyeh-scripts/scripts:$PATH
+export PATH=$PATH:$HOME/Yehyeh-scripts/scripts
 # Add toolbox
 # Add git helper scripts
 # Add additional shell scripts
-export PATH=$HOME/.config/git/bin:$HOME/.toolbox/bin:$PATH
+export PATH=$PATH:$HOME/.config/git/bin:$HOME/.toolbox/bin
