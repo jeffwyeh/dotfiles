@@ -5,6 +5,8 @@ if [ "$system_type" = "Darwin" ]; then
 
    # Python
    export PATH=$HOME/Library/Python/3.8/bin:$PATH
+   # Yehyeh-scripts
+   export PATH=$HOME/Yehyeh-scripts/scripts/mac:$PATH
 elif [ "$system_type" = "Linux" ]; then
    ## Linux ##
 
