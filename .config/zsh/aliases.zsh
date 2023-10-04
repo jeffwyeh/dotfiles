@@ -29,8 +29,10 @@ elif [ "$system_type" = "Linux" ]; then
    # Java switching
    alias print-java-version='printf "\n☕️ Java\n\n" && which java && java -version'
    alias switch-java-version='sudo alternatives --config java && source ~/.zshrc'
-   # Force tmux to use envImprovement
-   #alias tmux="/apollo/env/envImprovement/bin/tmux"
+   # TAO
+   alias taos='tao show -o configuration/application-override.yml'
+   alias taou='tao update -o configuration/application-override.yml'
+   alias taod='tao detach -o configuration/application-override.yml'
 fi
 
 # brazil aliases
