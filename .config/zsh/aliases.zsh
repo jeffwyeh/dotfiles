@@ -2,8 +2,6 @@
 system_type=$(uname -s)
 if [ "$system_type" = "Darwin" ]; then
    ## Running on mac OS ##
-   # Initialize Kerberos and Midway
-   alias allinit='kinit; mwinit -s --aea'
    # Add directory sync for cloud-desktop remote
    alias cdra='cloud-desktop remote add --host yehyeh.aka.corp.amazon.com -r /workplace -d '
    # Paginated mdcat
@@ -59,4 +57,8 @@ alias ccat='pygmentize -g'
 
 # Search history
 alias hh='history | grep'
+
+# Be lazy about initall
+alias gm=initall
+alias gn=termall
 
