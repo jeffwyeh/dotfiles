@@ -59,6 +59,6 @@ alias ccat='pygmentize -g'
 alias hh='history | grep'
 
 # Be lazy about initall
-alias gm=initall
-alias gn=termall
+alias hi=initall
+alias die=termall
 
