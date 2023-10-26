@@ -8,11 +8,47 @@
 	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
-		<key>908E63F9-79EE-4606-8D89-9E98C6B4832B</key>
+		<key>3170AC85-3211-4825-B911-C69DA81E4DE1</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>72C95775-97A3-4059-B5F0-E26505EC2246</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>6DA20977-000D-4CF8-9513-AEDA35EA6F11</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A9B9ABF9-AD28-4E74-AE0E-07D3300FCB2D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>908E63F9-79EE-4606-8D89-9E98C6B4832B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>6DA20977-000D-4CF8-9513-AEDA35EA6F11</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>3170AC85-3211-4825-B911-C69DA81E4DE1</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -40,7 +76,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>python3 /Users/yehyeh/dcv/dcv-cdd.py connect {query}.aka.corp.amazon.com --wssh</string>
+				<string>killall dcvviewer</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -51,9 +87,28 @@
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>72C95775-97A3-4059-B5F0-E26505EC2246</string>
+			<string>A9B9ABF9-AD28-4E74-AE0E-07D3300FCB2D</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>inputstring</key>
+				<string>{query}</string>
+				<key>matchcasesensitive</key>
+				<true/>
+				<key>matchmode</key>
+				<integer>0</integer>
+				<key>matchstring</key>
+				<string>kill</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.filter</string>
+			<key>uid</key>
+			<string>6DA20977-000D-4CF8-9513-AEDA35EA6F11</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -76,17 +131,74 @@
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>killall dcvviewer
+python3 /Users/yehyeh/dcv/dcv-cdd.py connect {query}.aka.corp.amazon.com --wssh</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>72C95775-97A3-4059-B5F0-E26505EC2246</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>inputstring</key>
+				<string>{query}</string>
+				<key>matchcasesensitive</key>
+				<true/>
+				<key>matchmode</key>
+				<integer>1</integer>
+				<key>matchstring</key>
+				<string>kill</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.filter</string>
+			<key>uid</key>
+			<string>3170AC85-3211-4825-B911-C69DA81E4DE1</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>3170AC85-3211-4825-B911-C69DA81E4DE1</key>
+		<dict>
+			<key>xpos</key>
+			<real>330</real>
+			<key>ypos</key>
+			<real>380</real>
+		</dict>
+		<key>6DA20977-000D-4CF8-9513-AEDA35EA6F11</key>
+		<dict>
+			<key>xpos</key>
+			<real>330</real>
+			<key>ypos</key>
+			<real>260</real>
+		</dict>
 		<key>72C95775-97A3-4059-B5F0-E26505EC2246</key>
 		<dict>
 			<key>xpos</key>
-			<real>355</real>
+			<real>435</real>
 			<key>ypos</key>
-			<real>285</real>
+			<real>350</real>
 		</dict>
 		<key>908E63F9-79EE-4606-8D89-9E98C6B4832B</key>
 		<dict>
@@ -94,6 +206,13 @@
 			<real>135</real>
 			<key>ypos</key>
 			<real>285</real>
+		</dict>
+		<key>A9B9ABF9-AD28-4E74-AE0E-07D3300FCB2D</key>
+		<dict>
+			<key>xpos</key>
+			<real>435</real>
+			<key>ypos</key>
+			<real>230</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>

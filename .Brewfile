@@ -49,14 +49,14 @@ cask "bluesnooze"                # Turn off bluetooth when macOS sleeps (since m
 cask "warp"                      # Warp "AI" terminal
 cask "unison"                    # Unison file synchronization
 cask "hyperkey"                  # Convert caps lock into hyper key
-cask "mouse-fix"                 # Additional mouse functionality
-cask "MonitorControl"            # Adjust external monitor settings
 
 ############
 ## Unused ##
 ############
 #tap "cmacrae/formulae"
 #brew "cmacrae/formulae/spacebar" # Replaced by sketchybar
+#cask "mac-mouse-fix"             # Additional mouse functionality
+#cask "background-music"          # Individual app sound control
 #cask "wezterm"                   # Another terminal
 #cask "kitty"                     # Another terminal
 #cask "alacritty"                 # Another terminal

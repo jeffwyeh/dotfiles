@@ -44,9 +44,12 @@ source "$ITEMS/transition.sh" $GRAY_DARK $GRAY_DARK $RIGHT
 source "$ITEMS/spaces.sh"
 source "$ITEMS/transition.sh" $GRAY_DARK $YELLOW $RIGHT
 source "$ITEMS/float.sh"
-source "$ITEMS/transition.sh" $YELLOW $CLEAR $RIGHT
-#source "$ITEMS/network.sh"
+source "$ITEMS/transition.sh" $YELLOW $WHITE $RIGHT
+source "$ITEMS/slack.sh"
+source "$ITEMS/outlook.sh"
+source "$ITEMS/transition.sh" $WHITE $CLEAR $RIGHT
 source "$ITEMS/vpn.sh"
+#source "$ITEMS/network.sh"
 
 # Right
 source "$ITEMS/time.sh"

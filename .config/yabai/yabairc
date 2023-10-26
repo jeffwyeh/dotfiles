@@ -99,11 +99,11 @@ yabai -m rule --add app='Calculator' manage=off
 # float dictionary
 yabai -m rule --add app='Dictionary' manage=off
 
+# float AWB
+yabai -m rule --add app='^AWB$' manage=off
+
 # float CIQ simulator
 yabai -m rule --add title='CIQ Simulator' manage=off
-
-# float Isaac
-yabai -m rule --add title='Binding of Isaac' manage=off
 
 # full screen DCV
 #yabai -m rule --add app='DCV Viewer' native-fullscreen=on

@@ -103,3 +103,8 @@ export AWS_EC2_METADATA_DISABLED=true
 
 
 export PATH=$HOME/.toolbox/bin:$PATH
+
+
+export PATH="/Applications/Fortify/Fortify_SCA_23.1.0/bin:$PATH"
+
+export PATH="/Applications/Fortify/Fortify_SCA_and_Apps_22.1.1/bin:$PATH"
