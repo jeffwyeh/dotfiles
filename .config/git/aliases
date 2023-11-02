@@ -24,6 +24,7 @@
   unstage = reset HEAD --
   back = !git reset --hard HEAD~$1
   cm-ref1 = !git add -A && git commit -C HEAD@{1}
+  drop = reset --hard HEAD
 # Advanced log display
   last = log -1 --stat
   last-tag = describe --abbrev=0
