@@ -65,7 +65,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Dev Desktop DCV</string>
+	<string>Cloud Desktop DCV</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -116,11 +116,11 @@
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>keyword</key>
-				<string>dcvview</string>
+				<string>cloud</string>
 				<key>subtext</key>
 				<string>Connect to DCV using CDD script</string>
 				<key>text</key>
-				<string>DCV</string>
+				<string>Connect to Cloud Desktop</string>
 				<key>withspace</key>
 				<true/>
 			</dict>
