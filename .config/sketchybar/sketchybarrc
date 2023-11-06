@@ -38,6 +38,7 @@ sketchybar --default "${defaults[@]}"
 
 # Custom event for float
 sketchybar --add event float_change
+sketchybar --add event window_focus
 
 # Left
 source "$ITEMS/transition.sh" $GRAY_DARK $GRAY_DARK $RIGHT
