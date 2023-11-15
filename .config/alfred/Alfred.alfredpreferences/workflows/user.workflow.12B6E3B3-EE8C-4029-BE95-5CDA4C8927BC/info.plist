@@ -135,12 +135,11 @@
 			<key>config</key>
 			<dict>
 				<key>concurrently</key>
-				<false/>
+				<true/>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>killall dcvviewer
-python3 /Users/yehyeh/dcv/dcv-cdd.py connect {query}.aka.corp.amazon.com --wssh</string>
+				<string>python3 /Users/yehyeh/dcv/dcv-cdd.py connect {query}.aka.corp.amazon.com --wssh</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
