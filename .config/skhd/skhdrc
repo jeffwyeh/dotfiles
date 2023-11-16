@@ -55,6 +55,15 @@ hyper - f : yabai -m window --toggle zoom-fullscreen && sketchybar --trigger flo
 ## toggle float
 hyper - t : yabai -m window --toggle float && sketchybar --trigger float_change
 
+## set window layer
+#hyper - 1 : yabai -m window --layer above && sketchybar --trigger layer_change
+#hyper - 2 : yabai -m window --layer normal && sketchybar --trigger layer_change
+#hyper - 3 : yabai -m window --layer below && sketchybar --trigger layer_change
+hyper - c : yabai -m query --windows --window | jq -re '.["layer"]' | \
+    xargs -I {} bash -c \
+    "if [[ '{}' = 'below' ]]; then yabai -m window --layer above; elif [[ '{}' = 'normal' ]]; then yabai -m window --layer below; elif [[ '{}' = 'above' ]]; then yabai -m window --layer normal; fi" \
+    && sketchybar --trigger layer_change
+
 ## Focus window up/down in stack
 ctrl - j : yabai -m window --focus stack.next || yabai -m window --focus stack.first
 ctrl - k : yabai -m window --focus stack.prev || yabai -m window --focus stack.last

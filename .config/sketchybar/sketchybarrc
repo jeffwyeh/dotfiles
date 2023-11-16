@@ -38,6 +38,7 @@ sketchybar --default "${defaults[@]}"
 
 # Custom event for float
 sketchybar --add event float_change
+sketchybar --add event layer_change
 sketchybar --add event window_focus
 
 # Left
@@ -45,6 +46,7 @@ source "$ITEMS/transition.sh" $GRAY_DARK $GRAY_DARK $RIGHT
 source "$ITEMS/spaces.sh"
 source "$ITEMS/transition.sh" $GRAY_DARK $YELLOW $RIGHT
 source "$ITEMS/float.sh"
+source "$ITEMS/layer.sh"
 source "$ITEMS/transition.sh" $YELLOW $WHITE $RIGHT
 source "$ITEMS/slack.sh"
 source "$ITEMS/outlook.sh"
