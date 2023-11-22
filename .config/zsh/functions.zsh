@@ -8,7 +8,7 @@ if [ "$system_type" = "Darwin" ]; then
    export JENV_SHELL=zsh
    export JENV_LOADED=1
    unset JAVA_HOME
-   source '/usr/local/Cellar/jenv/0.5.5_2/libexec/libexec/../completions/jenv.zsh'
+   source '/usr/local/Cellar/jenv/0.5.6/libexec/libexec/../completions/jenv.zsh'
    jenv rehash 2>/dev/null
    jenv refresh-plugins
    jenv() {

@@ -4,6 +4,7 @@ float=(
    script="$HOME/.config/sketchybar/plugins/float.sh"
    click_script="yabai window --toggle float"
    icon.color=$GRAY_DARK
+   icon.font="$NERD_FONT_MONO"
    background.color=$YELLOW
 )
 

@@ -17,3 +17,7 @@ HELVETICA_S="Helvetica Neue:Bold:10.0"
 
 # Nerd Font for weather (updated to 
 NERD_FONT="FiraCode Nerd Font:Regular:13.0"
+
+# Nerd Font Mono
+NERD_FONT_MONO="FiraCode Nerd Font Mono:Regular:20.0"
+

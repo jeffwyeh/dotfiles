@@ -3,6 +3,7 @@
 layer=(
    script="$HOME/.config/sketchybar/plugins/layer.sh"
    icon.color=$GRAY_DARK
+   icon.font="$NERD_FONT_MONO"
    background.color=$YELLOW
 )
 

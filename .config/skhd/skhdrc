@@ -61,7 +61,7 @@ hyper - t : yabai -m window --toggle float && sketchybar --trigger float_change
 #hyper - 3 : yabai -m window --layer below && sketchybar --trigger layer_change
 hyper - c : yabai -m query --windows --window | jq -re '.["layer"]' | \
     xargs -I {} bash -c \
-    "if [[ '{}' = 'below' ]]; then yabai -m window --layer above; elif [[ '{}' = 'normal' ]]; then yabai -m window --layer below; elif [[ '{}' = 'above' ]]; then yabai -m window --layer normal; fi" \
+    "if [[ '{}' = 'below' ]]; then yabai -m window --layer normal; elif [[ '{}' = 'normal' ]]; then yabai -m window --layer above; elif [[ '{}' = 'above' ]]; then yabai -m window --layer below; fi" \
     && sketchybar --trigger layer_change
 
 ## Focus window up/down in stack
@@ -70,10 +70,14 @@ ctrl - k : yabai -m window --focus stack.prev || yabai -m window --focus stack.l
 
 # Add the active window  to the window or stack to the {direction}
 # Note that this only works when the active window does *not* already belong to a stack
-cmd + ctrl - left  : yabai -m window west --stack $(yabai -m query --windows --window | jq -r '.id')
-cmd + ctrl - down  : yabai -m window south --stack $(yabai -m query --windows --window | jq -r '.id')
-cmd + ctrl - up    : yabai -m window north --stack $(yabai -m query --windows --window | jq -r '.id')
-cmd + ctrl - right : yabai -m window east --stack $(yabai -m query --windows --window | jq -r '.id')
+cmd + ctrl - left  : yabai -m window west --stack $(yabai -m query --windows --window | jq -r '.id') \
+    && sketchybar --trigger window_focus
+cmd + ctrl - down  : yabai -m window south --stack $(yabai -m query --windows --window | jq -r '.id') \
+    && sketchybar --trigger window_focus
+cmd + ctrl - up    : yabai -m window north --stack $(yabai -m query --windows --window | jq -r '.id') \
+    && sketchybar --trigger window_focus
+cmd + ctrl - right : yabai -m window east --stack $(yabai -m query --windows --window | jq -r '.id') \
+    && sketchybar --trigger window_focus
 
 ################################################################
 ###################### EXTERNAL SCRIPTS ########################

@@ -5,10 +5,16 @@
 LAYER=$(yabai -m query --windows --window | jq -r '."layer"')
 echo $LAYER
 
+ICON="󰃈"
+
 if [[ $LAYER == "above" ]]; then
-   sketchybar --set yabai_layer icon="1"
+   ICON="󰃑"
 elif [[ $LAYER == "normal" ]]; then
-   sketchybar --set yabai_layer icon="2"
+   ICON="󰃊"
 elif [[ $LAYER == "below" ]]; then
-   sketchybar --set yabai_layer icon="3"
+   ICON="󰃈"
 fi
+
+echo $ICON
+
+sketchybar --set yabai_layer icon=$ICON
