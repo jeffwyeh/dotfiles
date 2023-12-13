@@ -6,10 +6,10 @@
 [include]
   path = ~/.config/git/aliases
 [pull]
-	ff = only
+  ff = only
   rebase = true
 [core]
   editor = vim
-	pager = less -FRX
+  pager = less -FRX
 [credential]
   helper = cache --timeout=30000
