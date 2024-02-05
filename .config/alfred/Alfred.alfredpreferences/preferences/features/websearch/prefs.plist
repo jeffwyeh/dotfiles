@@ -52,6 +52,17 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
+		<key>A586DA14-C4C2-447A-A864-4D7A9776AEAD</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>sicn</string>
+			<key>text</key>
+			<string>Search ShipmentInjectionConsoleNAWS for {query}</string>
+			<key>url</key>
+			<string>https://na.console.mcf.amazon.dev/order/{query}</string>
+		</dict>
 		<key>B811AD29-A107-41C0-BB91-FDBB5392AEF4</key>
 		<dict>
 			<key>enabled</key>
