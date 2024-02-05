@@ -20,6 +20,7 @@
   cm = !git add -A && git commit -m
   cp = cherry-pick
   refresh = commit --amend --no-edit
+  fixup = !git add -A && git refresh
   reword = commit --verbose --amend
   unstage = reset HEAD --
   back = !git reset --hard HEAD~$1
