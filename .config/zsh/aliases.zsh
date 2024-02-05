@@ -29,7 +29,7 @@ elif [ "$system_type" = "Linux" ]; then
    alias switch-java-version='sudo alternatives --config java && source ~/.zshrc'
    # TAO
    alias taos='tao show -o configuration/application-override.yml'
-   alias taou='tao update -o configuration/application-override.yml'
+   alias taou='tao update -o configuration/application-override.yml --no-build'
    alias taod='tao detach -o configuration/application-override.yml'
 fi
 
